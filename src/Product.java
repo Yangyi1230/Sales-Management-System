@@ -4,7 +4,7 @@
 public class Product {
 
     int price;
-
+    int id;
     public int getPrice() {
         return price;
     }

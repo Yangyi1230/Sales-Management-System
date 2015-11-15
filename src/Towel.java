@@ -4,6 +4,7 @@
 public class Towel extends Product {
 
     public Towel(){
+        id = 3;
         price=20;
     }
 }

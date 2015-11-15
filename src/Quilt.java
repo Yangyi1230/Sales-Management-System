@@ -6,6 +6,7 @@ public class Quilt extends Product {
 
 
     public Quilt(){
+       id = 5;
         price=300;
     }
 }

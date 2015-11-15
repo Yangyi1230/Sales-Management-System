@@ -4,6 +4,7 @@
 public class Bathmat extends Product {
 
     public Bathmat(){
+        id = 4;
         price=40;
     }
 }
