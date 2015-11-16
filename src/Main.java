@@ -6,12 +6,14 @@
 public class Main {
     public static void main(String[] args){
 
-        ReceiptCatalog catalog=new ReceiptCatalog();
-        Receipt receipt=new Receipt();
-        catalog.add(receipt);
+//        ReceiptCatalog catalog=new ReceiptCatalog();
+//        Receipt receipt=new Receipt();
+//        catalog.add(receipt);
 
-        System.out.println("bathmat: "+receipt.bathmat.price);
-        System.out.println("Pillow: "+receipt.pillow.price);
+        ProductInfoList proList = new ProductInfoList();
+        DataTransition data = new DataTransition();
+        proList = data.genetateProListFromFile("F:\\OldRecord.txt");
+
 
     }
 }

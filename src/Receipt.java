@@ -5,77 +5,77 @@
 public class Receipt {
     Clerk clerk;
     Date date;
-    int towelMount;
-    int pillowMount;
-    int curtainMount;
-    int bathmatMount;
-    int quiltMount;
+    int towelAmount;
+    int pillowAmount;
+    int curtainAmount;
+    int bathmatAmount;
+    int quiltAmount;
 
     Receipt(){
         clerk = new Clerk();
         date = new Date();
-        towelMount = 0;
-        pillowMount = 0;
-        curtainMount = 0;
-        bathmatMount = 0;
-        quiltMount = 0;
+        towelAmount = 0;
+        pillowAmount = 0;
+        curtainAmount = 0;
+        bathmatAmount = 0;
+        quiltAmount = 0;
     }
-    public void setMountById(int proId, int mount){
+    public void setAmountById(int proId, int amount){
         switch(proId){
             case 1:
-                pillowMount = mount;
+                pillowAmount = amount;
                 break;
             case 2:
-                curtainMount = mount;
+                curtainAmount = amount;
                 break;
             case 3:
-                towelMount = mount;
+                towelAmount = amount;
                 break;
             case 4:
-                bathmatMount = mount;
+                bathmatAmount = amount;
                 break;
             case 5:
-                quiltMount =mount;
+                quiltAmount =amount;
                 break;
         }
     }
-    public int getBathmatMount() {
-        return bathmatMount;
+    public int getBathmatAmount() {
+        return bathmatAmount;
     }
 
-    public int getCurtainMount() {
-        return curtainMount;
+    public int getCurtainAmount() {
+        return curtainAmount;
     }
 
-    public int getPillowMount() {
-        return pillowMount;
+    public int getPillowAmount() {
+        return pillowAmount;
     }
 
-    public int getQuiltMount() {
-        return quiltMount;
+    public int getQuiltAmount() {
+        return quiltAmount;
     }
 
-    public int getTowelMount() {
-        return towelMount;
+    public int getTowelAmount() {
+        return towelAmount;
     }
 
-    public void setBathmatMount(int bathmatMount) {
-        this.bathmatMount = bathmatMount;
+    public void setBathmatAmount(int bathmatAmount) {
+        this.bathmatAmount = bathmatAmount;
     }
 
-    public void setCurtainMount(int curtainMount) {
-        this.curtainMount = curtainMount;
+    public void setCurtainAmount(int curtainAmount) {
+        this.curtainAmount = curtainAmount;
     }
 
-    public void setPillowMount(int pillowMount) {
-        this.pillowMount = pillowMount;
+    public void setPillowAmount(int pillowAmount) {
+        this.pillowAmount = pillowAmount;
     }
 
-    public void setQuiltMount(int quiltMount) {
-        this.quiltMount = quiltMount;
+    public void setQuiltAmount(int quiltAmount) {
+        this.quiltAmount = quiltAmount;
     }
 
-    public void setTowelMount(int towelMount) {
-        this.towelMount = towelMount;
+    public void setTowelAmount(int towelAmount) {
+        this.towelAmount = towelAmount;
     }
 }

@@ -9,6 +9,14 @@ public class Product {
         return price;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     public void setPrice(int price) {
         this.price = price;
     }
