@@ -5,7 +5,7 @@ public class SaleLineItem {
 
     Product product;
 
-    int count=0;
+    private int count=0;
 
     public int getCount() {
         return count;

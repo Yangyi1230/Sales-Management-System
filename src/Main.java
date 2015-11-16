@@ -12,7 +12,7 @@ public class Main {
 
         ProductInfoList proList = new ProductInfoList();
         DataTransition data = new DataTransition();
-        proList = data.genetateProListFromFile("F:\\OldRecord.txt");
+        proList = data.generateProListFromFile("F:\\OldRecord.txt");
 
 
     }

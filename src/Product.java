@@ -3,8 +3,8 @@
  */
 public class Product {
 
-    int price;
-    int id;
+    private int price;
+    private int id;
     public int getPrice() {
         return price;
     }

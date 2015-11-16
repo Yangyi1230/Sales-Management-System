@@ -8,7 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class DataTransition {
-    public ProductInfoList genetateProListFromFile(String fileName){
+    public ProductInfoList generateProListFromFile(String fileName){
 
         File file = new File(fileName);
         BufferedReader reader = null;
@@ -43,5 +43,33 @@ public class DataTransition {
             }
         }
         return proInfoList;
+    }
+
+    public ReceiptCatalog generateReceiptCatalog(ProductInfoList productInfoList){
+        ReceiptCatalog catalog = new ReceiptCatalog();
+        ProductInfomation proInfo;
+
+        for(int i = 0; i < productInfoList.size(); i++){
+            Receipt receipt =new Receipt();
+            proInfo = productInfoList.get(i);
+
+            catalog.add(receipt);
+        }
+        return catalog;
+    }
+    public SaleLineList  generateSaleLineList(ProductInfoList productInfoList){
+        SaleLineList list = new SaleLineList();
+        ProductInfomation proInfo;
+
+        for(int i = 0; i < productInfoList.size(); i++){
+            SaleLineItem  item =new SaleLineItem();
+
+            proInfo = productInfoList.get(i);
+            item.setCount(proInfo.getAmount());
+            item.product.setId(proInfo.product.getId());
+
+            list.add(item);
+        }
+        return list;
     }
 }
