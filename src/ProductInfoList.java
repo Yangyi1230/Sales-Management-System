@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 /**
- * Created by ¾°Ë´ on 2015/11/16.
+ * Created by ï¿½ï¿½Ë´ on 2015/11/16.
  */
-public class ProductInfoList extends ArrayList<ProductInfomation>{
+public class ProductInfoList extends ArrayList<ProductInformation>{
 
 }

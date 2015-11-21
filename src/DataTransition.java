@@ -21,7 +21,7 @@ public class DataTransition {
             while ((tempString = reader.readLine()) != null) {
 
                 data = tempString.split(",");
-                ProductInfomation proInfo = new ProductInfomation();
+                ProductInformation proInfo = new ProductInformation();
 
                 proInfo.clerk.setId(Integer.parseInt(data[0]));
                 proInfo.date.setMonth(Integer.parseInt( data[1].substring(0, 2)));
@@ -47,7 +47,7 @@ public class DataTransition {
 
     public ReceiptCatalog generateReceiptCatalog(ProductInfoList productInfoList){
         ReceiptCatalog catalog = new ReceiptCatalog();
-        ProductInfomation proInfo;
+        ProductInformation proInfo;
 
         for(int i = 0; i < productInfoList.size(); i++){
             Receipt receipt =new Receipt();
@@ -57,9 +57,10 @@ public class DataTransition {
         }
         return catalog;
     }
+
     public SaleLineList  generateSaleLineList(ProductInfoList productInfoList){
         SaleLineList list = new SaleLineList();
-        ProductInfomation proInfo;
+        ProductInformation proInfo;
 
         for(int i = 0; i < productInfoList.size(); i++){
             SaleLineItem  item =new SaleLineItem();

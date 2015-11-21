@@ -3,9 +3,9 @@
  */
 public class Product {
 
-    private int price;
-    private int id;
-    public int getPrice() {
+    protected int price;
+    protected int id;
+    protected int getPrice() {
         return price;
     }
 

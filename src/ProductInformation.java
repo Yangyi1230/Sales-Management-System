@@ -1,13 +1,13 @@
 /**
- * Created by ¾°Ë´ on 2015/11/16.
+ * Created by ï¿½ï¿½Ë´ on 2015/11/16.
  */
-public class ProductInfomation {
+public class ProductInformation {
     Clerk clerk;
     Date date;
     Product product;
     int amount;
 
-    public ProductInfomation() {
+    public ProductInformation() {
         clerk = new Clerk();
         date = new Date();
         product = new Product();

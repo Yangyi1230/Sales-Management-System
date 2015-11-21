@@ -14,6 +14,8 @@ public class Main {
         DataTransition data = new DataTransition();
         proList = data.generateProListFromFile("F:\\OldRecord.txt");
 
+        ReceiptCatalog x= new ReceiptCatalog();
+
 
     }
 }
