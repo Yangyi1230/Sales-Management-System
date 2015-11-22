@@ -5,6 +5,7 @@ public class Product {
 
     protected int price;
     protected int id;
+
     protected int getPrice() {
         return price;
     }

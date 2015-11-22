@@ -5,11 +5,11 @@
 public class Receipt {
     Clerk clerk;
     Date date;
-    int towelAmount;
-    int pillowAmount;
-    int curtainAmount;
-    int bathmatAmount;
-    int quiltAmount;
+    int towelAmount; // 3
+    int pillowAmount;// 1
+    int curtainAmount;// 2
+    int bathmatAmount;// 4
+    int quiltAmount;// 5
 
     Receipt(){
         clerk = new Clerk();
@@ -39,6 +39,42 @@ public class Receipt {
                 break;
         }
     }
+
+
+//    get single product amount by product ID
+    public int getAmountById(int proId){
+        int amount=0;
+
+        switch(proId){
+            case 1:
+                amount=getPillowAmount();
+                break;
+            case 2:
+                amount=getCurtainAmount();
+                break;
+            case 3:
+                amount=getTowelAmount();
+                break;
+            case 4:
+                amount=getBathmatAmount();
+                break;
+            case 5:
+                amount=getQuiltAmount();
+                break;
+        }
+
+        System.out.println("getAmountById result: "+amount);
+
+        return amount;
+    }
+
+//    need change ...
+    public int getTotalProAmountPerReceipt(){
+        int total=0;
+        total+=getBathmatAmount()+getCurtainAmount()+getPillowAmount()+getQuiltAmount()+getTowelAmount();
+        return total;
+    }
+
     public int getBathmatAmount() {
         return bathmatAmount;
     }
@@ -78,4 +114,6 @@ public class Receipt {
     public void setTowelAmount(int towelAmount) {
         this.towelAmount = towelAmount;
     }
+
+
 }
