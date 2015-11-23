@@ -21,16 +21,21 @@ public class Transition {
     }
 
 
-    //    return ReceiptList of all record of certain clerk in certain month
-    ReceiptCatalog getClerkMonthRecord(int month, String clerk, ReceiptCatalog rc){
+    //    return ReceiptList of all record of certain clerkName in certain month
+    ReceiptCatalog getClerkMonthRecord(int month, String clerkName, ReceiptCatalog rc){
 
         //initialise
         ReceiptCatalog monthReceipt=new ReceiptCatalog();
 
         Iterator iterator =rc.iterator();
+        Receipt r;
+
         while(iterator.hasNext()){
-            Receipt r=(Receipt)iterator.next();
-            if(r.clerk.equals(clerk)&&r.date.getMonth()==month){
+            r=(Receipt)iterator.next();
+
+            System.out.println(r.clerk.getName()+" "+r.date.getMonth());
+
+            if(r.clerk.getName().equals(clerkName)&&r.date.getMonth()==month){
                 monthReceipt.add(r);
             }
         }

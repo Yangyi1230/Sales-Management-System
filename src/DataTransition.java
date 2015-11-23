@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class DataTransition {
+
     public ClerkList generateClerkList(String fileName){
         File file = new File(fileName);
         BufferedReader reader = null;
@@ -47,17 +48,18 @@ public class DataTransition {
             String[] data;
 
             while ((tempString = reader.readLine()) != null) {
+                if(!tempString.equals("")) {
+                    data = tempString.split(",");
+                    ProductInformation proInfo = new ProductInformation();
 
-                data = tempString.split(",");
-                ProductInformation proInfo = new ProductInformation();
+                    proInfo.clerk.setId(Integer.parseInt(data[0]));
+                    proInfo.date.setMonth(Integer.parseInt(data[1].substring(0, 2)));
+                    proInfo.date.setDate(Integer.parseInt(data[1].substring(2, 4)));
+                    proInfo.product.setId(Integer.parseInt(data[2]));
+                    proInfo.setAmount(Integer.parseInt(data[3]));
 
-                proInfo.clerk.setId(Integer.parseInt(data[0]));
-                proInfo.date.setMonth(Integer.parseInt( data[1].substring(0, 2)));
-                proInfo.date.setDate(Integer.parseInt(data[1].substring(2, 4)));
-                proInfo.product.setId(Integer.parseInt(data[2]));
-                proInfo.setAmount(Integer.parseInt(data[3]));
-
-                proInfoList.add(proInfo);
+                    proInfoList.add(proInfo);
+                }
             }
             reader.close();
         } catch (IOException e) {
@@ -67,6 +69,8 @@ public class DataTransition {
                 try {
                     reader.close();
                 } catch (IOException e1) {
+                    System.out.println("reader close error");
+                    e1.printStackTrace();
                 }
             }
         }

@@ -8,11 +8,13 @@ import java.util.Objects;
  */
 public class MonthSaleCalculator extends Transition {
 
-    int getMonthSaleCalculatorResult(int proId, int month,String clerk,ReceiptCatalog rc){
+
+    int getMonthSaleCalculatorResult(int proId, int month,String clerkName){
         int amount=0;
         ReceiptCatalog temp=new ReceiptCatalog();
 
-        temp=getClerkMonthRecord(month,clerk,rc);
+        temp=getClerkMonthRecord(month,clerkName,catalog);
+
 
         amount=getProAmount(proId,temp);
 
@@ -20,8 +22,7 @@ public class MonthSaleCalculator extends Transition {
         return amount;
     }
 
-
-
-
-
+    public MonthSaleCalculator(ReceiptCatalog rc, ClerkList clerkList) {
+        super(rc, clerkList);
+    }
 }
