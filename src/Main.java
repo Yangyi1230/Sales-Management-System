@@ -15,6 +15,10 @@ public class Main {
         String str =new String("/TXT/OldRecord.txt") ;
         proList = data.generateProListFromFile(Main.class.getResource(str).getFile());
 
+        String str1 =new String("/TXT/ClerkInfo.txt") ;
+        ClerkList clerkList;
+        clerkList = data.generateClerkList(Main.class.getResource(str1).getFile());
+
         ReceiptCatalog x= new ReceiptCatalog();
         x = data.generateReceiptCatalog(proList);
 

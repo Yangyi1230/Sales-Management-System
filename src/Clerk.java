@@ -26,6 +26,15 @@ public class Clerk {
         }
     }
 
+    public Clerk() {
+        this.id = 0;
+        this.name = "";
+    }
+    public Clerk(int id,String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }

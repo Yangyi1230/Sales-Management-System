@@ -8,6 +8,34 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class DataTransition {
+    public ClerkList generateClerkList(String fileName){
+        File file = new File(fileName);
+        BufferedReader reader = null;
+
+        ClerkList clerkList = new ClerkList();
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            String tempString;
+            String[] data;
+
+            while ((tempString = reader.readLine()) != null) {
+                data = tempString.split(",");
+                Clerk clerk = new Clerk(Integer.parseInt(data[0]), data[1]);
+                clerkList.add(clerk);
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e1) {
+                }
+            }
+        }
+        return clerkList;
+    }
     public ProductInfoList generateProListFromFile(String fileName){
 
         File file = new File(fileName);
