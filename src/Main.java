@@ -31,9 +31,9 @@ public class Main {
         monthSaleCalculator.getMonthSaleCalculatorResult(1,11,clerkName);//Tom number 1 product sold in 11
 
         PercentageCounter percentageCounter=new PercentageCounter(receiptCatalog,clerkList,productList);
-        percentageCounter.getPercentageCounterResult(11,clerkName);
+        percentageCounter.getProPercentageCounterResult(11, clerkName);
 
-        percentageCounter.getClerkSaleAmountPerMonth(11,clerkName);
+        percentageCounter.getSalePercentageCounterResult(11, clerkName);
 
 
     }

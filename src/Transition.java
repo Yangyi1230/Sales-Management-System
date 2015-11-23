@@ -65,7 +65,7 @@ public class Transition {
 
     }
 
-    //    get each clerkName total sale product amount every month
+    //    get each clerkName total sale product amount every month，每月销售货品总数
     int getClerkTotalProAmountPerMonth(int month, String clerkName){
 
         int total=0;
@@ -96,7 +96,8 @@ public class Transition {
         return price;
     }
 
-    int getClerkSaleAmountPerMonth(int month, String clerkName){
+    //每月销售所有货品金额总数
+    int getClerkTotalSaleAmountPerMonth(int month, String clerkName){
         int saleAmount=0;
 
         ReceiptCatalog mounthRecord=getClerkMonthRecord(month,clerkName);
@@ -107,7 +108,7 @@ public class Transition {
             saleAmount+=getProAmount(product.getId(),mounthRecord)*getProPriceById(product.getId());
         }
 
-        System.out.println("getClerkSaleAmountPerMonth: "+saleAmount);
+        System.out.println("getClerkTotalSaleAmountPerMonth: "+saleAmount);
         return saleAmount;
     }
 

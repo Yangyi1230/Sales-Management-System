@@ -6,7 +6,7 @@ import java.util.Iterator;
 public class PercentageCounter extends Transition {
 
 
-    float getPercentageCounterResult(int month, String clerkName){
+    float getProPercentageCounterResult(int month, String clerkName){
 
         int total=0;
         float percent=0;
@@ -24,7 +24,7 @@ public class PercentageCounter extends Transition {
         System.out.println("clerkTotal: "+clerkTotal);
         percent= ((float)clerkTotal)/((float)total);
         percent=(float)Math.round(percent*100)/100;//保留两位小数
-        System.out.println("getPercentageCounterResult result: " + percent);
+        System.out.println("getProPercentageCounterResult result: " + percent);
 
         return percent;
 
@@ -33,4 +33,26 @@ public class PercentageCounter extends Transition {
     public PercentageCounter(ReceiptCatalog rc, ClerkList clerkList, ProductList productList) {
         super(rc, clerkList, productList);
     }
+
+    float getSalePercentageCounterResult(int month, String clerkName){
+        int total=0;
+        float percent=0;
+
+        Iterator iterator =clerkList.iterator();
+        while(iterator.hasNext()){
+            Clerk c=(Clerk)iterator.next();
+            total+=getClerkTotalSaleAmountPerMonth(month, c.getName());
+        }
+
+        int clerkTotal=0;
+
+        clerkTotal= getClerkTotalSaleAmountPerMonth(month, clerkName);
+
+        percent= ((float)clerkTotal)/((float)total);
+        percent=(float)Math.round(percent*100)/100;//保留两位小数
+
+        System.out.println("getSalePercentageCounterResult: "+percent);
+        return percent;
+    }
+
 }
