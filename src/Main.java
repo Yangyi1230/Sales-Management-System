@@ -35,6 +35,9 @@ public class Main {
 
         percentageCounter.getSalePercentageCounterResult(11, clerkName);
 
+        TotalSaleCalculator totalSaleCalculator=new TotalSaleCalculator(receiptCatalog,clerkList,productList);
+        totalSaleCalculator.getTotalSaleCalculator(1);
+
 
     }
 }
