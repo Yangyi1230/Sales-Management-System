@@ -1,5 +1,5 @@
 /**
- * Created by ��˴ on 2015/11/16.
+ * Created by Jingshun on 2015/11/16.
  */
 public class ProductInformation {
     Clerk clerk;

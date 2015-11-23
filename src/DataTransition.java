@@ -48,11 +48,37 @@ public class DataTransition {
     public ReceiptCatalog generateReceiptCatalog(ProductInfoList productInfoList){
         ReceiptCatalog catalog = new ReceiptCatalog();
         ProductInformation proInfo;
+        MidList list = new MidList();
+        boolean isFind;
 
         for(int i = 0; i < productInfoList.size(); i++){
-            Receipt receipt =new Receipt();
             proInfo = productInfoList.get(i);
-
+            isFind = false;
+            for(int j = 0; j< list.size(); j++){
+                RNode node = list.get(j);
+                if(node.clerk.getId() == proInfo.clerk.getId()&&
+                        node.date.getMonth() == proInfo.date.getMonth()&&
+                        node.date.getDate() == proInfo.date.getDate()){
+                    SaleLineItem item =new SaleLineItem(proInfo.product, proInfo.amount);
+                    node.saleList.add(item);
+                    isFind = true;
+                    break;
+                }
+            }
+            if(!isFind){
+                SaleLineItem item = new SaleLineItem(proInfo.product, proInfo.amount);
+                SaleLineList salelist = new SaleLineList();
+                salelist.add(item);
+                RNode node = new RNode(proInfo.clerk, proInfo.date, salelist);
+                list.add(node);
+            }
+        }
+        for(int i = 0; i<list.size(); i++){
+            RNode node = list.get(i);
+            Receipt receipt =new Receipt(node.clerk, node.date);
+            for(int j = 0; j < node.saleList.size(); j++){
+                receipt.setAmountById(node.saleList.get(j).product.getId(), node.saleList.get(j).getCount());
+            }
             catalog.add(receipt);
         }
         return catalog;
@@ -63,12 +89,8 @@ public class DataTransition {
         ProductInformation proInfo;
 
         for(int i = 0; i < productInfoList.size(); i++){
-            SaleLineItem  item =new SaleLineItem();
-
             proInfo = productInfoList.get(i);
-            item.setCount(proInfo.getAmount());
-            item.product.setId(proInfo.product.getId());
-
+            SaleLineItem  item =new SaleLineItem(proInfo.product, proInfo.getAmount());
             list.add(item);
         }
         return list;

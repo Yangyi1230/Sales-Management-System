@@ -7,6 +7,11 @@ public class SaleLineItem {
 
     private int count=0;
 
+    public SaleLineItem(Product product,int amount) {
+        this.product = product;
+        count = amount;
+    }
+
     public int getCount() {
         return count;
     }

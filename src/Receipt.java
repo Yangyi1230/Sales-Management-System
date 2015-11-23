@@ -20,6 +20,17 @@ public class Receipt {
         bathmatAmount = 0;
         quiltAmount = 0;
     }
+
+    public Receipt(Clerk clerk, Date date) {
+        this.clerk = clerk;
+        this.date = date;
+        towelAmount = 0;
+        pillowAmount = 0;
+        curtainAmount = 0;
+        bathmatAmount = 0;
+        quiltAmount = 0;
+    }
+
     public void setAmountById(int proId, int amount){
         switch(proId){
             case 1:
