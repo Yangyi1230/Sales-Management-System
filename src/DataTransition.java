@@ -37,6 +37,36 @@ public class DataTransition {
         }
         return clerkList;
     }
+
+    public ProductList generateProductList(String fileName){
+        File file = new File(fileName);
+        BufferedReader reader = null;
+
+        ProductList productList=new ProductList();
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            String tempString;
+            String[] data;
+
+            while ((tempString = reader.readLine()) != null) {
+                data = tempString.split(",");
+                Product product = new Product(Integer.parseInt(data[0]), Integer.parseInt(data[1]));
+                productList.add(product);
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e1) {
+                }
+            }
+        }
+        return productList;
+    }
+
     public ProductInfoList generateProListFromFile(String fileName){
 
         File file = new File(fileName);

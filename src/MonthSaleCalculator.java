@@ -6,6 +6,8 @@ import java.util.Objects;
 /**
  * Created by chenhao on 11/13/15.
  */
+
+// calculate sale amount of each product for each salesclerk each month.
 public class MonthSaleCalculator extends Transition {
 
 
@@ -13,7 +15,7 @@ public class MonthSaleCalculator extends Transition {
         int amount=0;
         ReceiptCatalog temp=new ReceiptCatalog();
 
-        temp=getClerkMonthRecord(month,clerkName,catalog);
+        temp=getClerkMonthRecord(month,clerkName);
 
 
         amount=getProAmount(proId,temp);
@@ -22,7 +24,7 @@ public class MonthSaleCalculator extends Transition {
         return amount;
     }
 
-    public MonthSaleCalculator(ReceiptCatalog rc, ClerkList clerkList) {
-        super(rc, clerkList);
+    public MonthSaleCalculator(ReceiptCatalog rc, ClerkList clerkList, ProductList productList) {
+        super(rc, clerkList, productList);
     }
 }

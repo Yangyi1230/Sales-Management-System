@@ -21,4 +21,12 @@ public class Product {
     public void setPrice(int price) {
         this.price = price;
     }
+
+    public Product(int id,int price) {
+        this.price = price;
+        this.id=id;
+    }
+
+    public Product() {
+    }
 }

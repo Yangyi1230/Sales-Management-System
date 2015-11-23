@@ -2,7 +2,6 @@
  * Created by chenhao on 11/13/15.
  */
 
-import java.net.URL;
 public class Main {
     public static void main(String[] args){
 
@@ -11,25 +10,30 @@ public class Main {
 //        catalog.add(receipt);
 
         String clerkName="Tom";
-        ProductInfoList proList = new ProductInfoList();
+        ProductInfoList proInfoList = new ProductInfoList();
         DataTransition data = new DataTransition();
         String str =new String("/TXT/OldRecord.txt") ;
-        proList = data.generateProListFromFile(Main.class.getResource(str).getFile());
+        proInfoList = data.generateProListFromFile(Main.class.getResource(str).getFile());
 
-        String str1 =new String("/TXT/ClerkInfo.txt") ;
+        String str1 =new String("/TXT/ClerkInfoDB.txt") ;
         ClerkList clerkList;
         clerkList = data.generateClerkList(Main.class.getResource(str1).getFile());
 
-        ReceiptCatalog receiptCatalog= new ReceiptCatalog();
-        receiptCatalog = data.generateReceiptCatalog(proList);
+        String str2=new String("/TXT/ProductInfoDB.txt");
+        ProductList productList;
+        productList=data.generateProductList(Main.class.getResource(str2).getFile());
 
-        MonthSaleCalculator monthSaleCalculator=new MonthSaleCalculator(receiptCatalog,clerkList);
+        ReceiptCatalog receiptCatalog= new ReceiptCatalog();
+        receiptCatalog = data.generateReceiptCatalog(proInfoList);
+
+        MonthSaleCalculator monthSaleCalculator=new MonthSaleCalculator(receiptCatalog,clerkList,productList);
 
         monthSaleCalculator.getMonthSaleCalculatorResult(1,11,clerkName);//Tom number 1 product sold in 11
 
-        PercentageCounter percentageCounter=new PercentageCounter(receiptCatalog,clerkList);
-        percentageCounter.getPercentageCounterResult(clerkName,11);
+        PercentageCounter percentageCounter=new PercentageCounter(receiptCatalog,clerkList,productList);
+        percentageCounter.getPercentageCounterResult(11,clerkName);
 
+        percentageCounter.getClerkSaleAmountPerMonth(11,clerkName);
 
 
     }
