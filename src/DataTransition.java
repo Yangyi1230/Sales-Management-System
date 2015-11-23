@@ -26,7 +26,7 @@ public class DataTransition {
                 proInfo.clerk.setId(Integer.parseInt(data[0]));
                 proInfo.date.setMonth(Integer.parseInt( data[1].substring(0, 2)));
                 proInfo.date.setDate(Integer.parseInt(data[1].substring(2, 4)));
-                proInfo.product.setId(Integer.parseInt(data[3]));
+                proInfo.product.setId(Integer.parseInt(data[2]));
                 proInfo.setAmount(Integer.parseInt(data[3]));
 
                 proInfoList.add(proInfo);
