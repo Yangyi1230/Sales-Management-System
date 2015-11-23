@@ -1,7 +1,3 @@
-import javax.swing.text.html.HTMLDocument;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Objects;
 
 /**
  * Created by chenhao on 11/13/15.
@@ -13,14 +9,14 @@ public class MonthSaleCalculator extends Transition {
 
     int getMonthSaleCalculatorResult(int proId, int month,String clerkName){
         int amount=0;
-        ReceiptCatalog temp=new ReceiptCatalog();
+        ReceiptCatalog temp;
 
         temp=getClerkMonthRecord(month,clerkName);
 
 
-        amount=getProAmount(proId,temp);
+        amount= getProTotalAmount(proId, temp);
 
-        System.out.println("MonthSaleCalculator result: " + amount);
+//        System.out.println("MonthSaleCalculator result: " + amount);
         return amount;
     }
 

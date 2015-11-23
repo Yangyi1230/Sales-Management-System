@@ -38,6 +38,9 @@ public class Main {
         TotalSaleCalculator totalSaleCalculator=new TotalSaleCalculator(receiptCatalog,clerkList,productList);
         totalSaleCalculator.getTotalSaleCalculator(1);
 
+        ReportProducer reportProducer=new ReportProducer(receiptCatalog,clerkList,productList);
+        reportProducer.generateReport(11);
+
 
     }
 }

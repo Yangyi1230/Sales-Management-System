@@ -12,8 +12,8 @@ public class TotalSaleCalculator extends Transition {
 
     int getTotalSaleCalculator(int proId){
         int total=0;
-        total=getProAmount(proId,catalog)*getProPriceById(proId);
-        System.out.println("getTotalSaleCalculator: "+total);
+        total= getProTotalAmount(proId, catalog)*getProPriceById(proId);
+//        System.out.println("getTotalSaleCalculator: "+total);
         return total;
     }
 

@@ -74,7 +74,7 @@ public class Receipt {
                 break;
         }
 
-        System.out.println("getAmountById result: "+amount);
+//        System.out.println("getAmountById result: "+amount);
 
         return amount;
     }
