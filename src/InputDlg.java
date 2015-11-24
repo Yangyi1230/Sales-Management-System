@@ -53,6 +53,6 @@ public class InputDlg extends JDialog {
         InputDlg dialog = new InputDlg();
         dialog.pack();
         dialog.setVisible(true);
-        System.exit(0);
+       System.exit(0);
     }
 }

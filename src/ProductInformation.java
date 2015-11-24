@@ -14,11 +14,30 @@ public class ProductInformation {
         amount = 0;
     }
 
+    public ProductInformation(Clerk clerk, Date date, Product product, int amount) {
+        this.clerk = clerk;
+        this.date = date;
+        this.product = product;
+        this.amount = amount;
+    }
+
     public void setAmount(int amount) {
         this.amount = amount;
     }
 
     public int getAmount() {
         return amount;
+    }
+
+    public void setClerk(Clerk clerk) {
+        this.clerk = clerk;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

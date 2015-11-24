@@ -5,24 +5,34 @@ import java.util.Iterator;
  */
 public class Transition {
 
-    protected ReceiptCatalog catalog;
+    public static ReceiptCatalog catalog;
 
-    protected ClerkList clerkList;
+    public static ClerkList clerkList;
 
-    protected ProductList productList;
+    public static ProductList productList;
 
-    Transition(){
-        catalog = new ReceiptCatalog();
-        clerkList=new ClerkList();
-        productList=new ProductList();
-    }
+    public static ProductInfoList productInfoList;
 
-    Transition(ReceiptCatalog rc, ClerkList clerkList,ProductList productList){
+    public static DataTransition dataTransition=new DataTransition();
+
+    public Transition(ReceiptCatalog rc, ClerkList clerkList, ProductList productList) {
         this.catalog=rc;
         this.clerkList=clerkList;
         this.productList=productList;
-//        System.out.println("Transition Construct complete ");
     }
+
+    public Transition() {
+    }
+
+    static public void initial(String ProductInfoDB, String ClerkInfoDB, String OldRecord ){
+     //   dataTransition.initialization(ProductInfoDB,productInfoList,ClerkInfoDB,clerkList,OldRecord,productList,catalog);
+        productInfoList = dataTransition.generateProListFromFile(Main.class.getResource(OldRecord).getFile());
+        clerkList = dataTransition.generateClerkList(Main.class.getResource(ClerkInfoDB).getFile());
+        productList = dataTransition.generateProductList(Main.class.getResource(ProductInfoDB).getFile());
+        catalog = dataTransition.generateReceiptCatalog(productInfoList);
+    }
+
+
 
 
     //    return ReceiptList of all record of certain clerkName in certain month
@@ -124,6 +134,19 @@ public class Transition {
 
 //        System.out.println("getClerkTotalSaleAmountPerMonth: "+saleAmount);
         return saleAmount;
+    }
+
+    String getClerkNameById(int clerkId){
+        String name="";
+        Clerk temp;
+        Iterator iterator=clerkList.iterator();
+        while(iterator.hasNext()){
+            temp=(Clerk)iterator.next();
+            if(temp.getId()==clerkId){
+                name=temp.getName();
+            }
+        }
+        return name;
     }
 
 }

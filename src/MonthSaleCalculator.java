@@ -5,6 +5,9 @@
 public class MonthSaleCalculator extends Transition {
 
 
+    public MonthSaleCalculator() {
+    }
+
     int getMonthSaleCalculatorResult(int proId, int month,String clerkName){
         int amount=0;
         ReceiptCatalog temp;

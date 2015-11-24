@@ -11,13 +11,13 @@ public class DataTransition {
 
 
 
-    public void initialization(String proInfoFile, ProductInfoList piList, String clFile, ClerkList clerkList,
-                               String prFile, ProductList pdList, ReceiptCatalog catalog){
-        piList = generateProListFromFile(proInfoFile);
-        clerkList = generateClerkList(clFile);
-        pdList = generateProductList(prFile);
-        catalog = generateReceiptCatalog(piList);
-    }
+//    public void initialization(String OldRecord, ProductInfoList productInfoList, String ClerkInfoDB, ClerkList clerkList,
+//                               String ProductInfoDB, ProductList pdList, ReceiptCatalog catalog){
+//        productInfoList = generateProListFromFile(Main.class.getResource(OldRecord).getFile());
+//        clerkList = generateClerkList(Main.class.getResource(ClerkInfoDB).getFile());
+//        pdList = generateProductList(Main.class.getResource(ProductInfoDB).getFile());
+//        catalog = generateReceiptCatalog(productInfoList);
+//    }
 
     public ClerkList generateClerkList(String fileName){
         File file = new File(fileName);
@@ -109,7 +109,7 @@ public class DataTransition {
                 try {
                     reader.close();
                 } catch (IOException e1) {
-                    System.out.println("reader close error");
+//                    System.out.println("reader close error");
                     e1.printStackTrace();
                 }
             }
@@ -117,7 +117,8 @@ public class DataTransition {
         return proInfoList;
     }
 
-    public MidList generateMidList(ProductInfoList productInfoList){
+    public ReceiptCatalog generateReceiptCatalog(ProductInfoList productInfoList){
+        ReceiptCatalog catalog = new ReceiptCatalog();
         ProductInformation proInfo;
         MidList list = new MidList();
         boolean isFind;
@@ -144,12 +145,6 @@ public class DataTransition {
                 list.add(node);
             }
         }
-    return list;
-    }
-
-    public ReceiptCatalog generateReceiptCatalog(MidList list){
-        ReceiptCatalog catalog = new ReceiptCatalog();
-
         for(int i = 0; i<list.size(); i++){
             RNode node = list.get(i);
             Receipt receipt =new Receipt(node.clerk, node.date);
@@ -158,13 +153,6 @@ public class DataTransition {
             }
             catalog.add(receipt);
         }
-        return catalog;
-
-    }
-
-    public ReceiptCatalog generateReceiptCatalog(ProductInfoList productInfoList){
-        MidList list = generateMidList(productInfoList);
-        ReceiptCatalog catalog = generateReceiptCatalog(list);
         return catalog;
     }
 
