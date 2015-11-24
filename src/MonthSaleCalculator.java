@@ -2,8 +2,6 @@
 /**
  * Created by chenhao on 11/13/15.
  */
-
-// calculate sale amount of each product for each salesclerk each month.
 public class MonthSaleCalculator extends Transition {
 
 
@@ -13,6 +11,7 @@ public class MonthSaleCalculator extends Transition {
 
         temp=getClerkMonthRecord(month,clerkName);
 
+        //amount=getProAmount(proId,temp);
 
         amount= getProTotalAmount(proId, temp);
 
