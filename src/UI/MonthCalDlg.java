@@ -1,12 +1,16 @@
+package UI;
+
 import javax.swing.*;
 import java.awt.event.*;
 
-public class InputDlg extends JDialog {
+public class MonthCalDlg extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
+    private JSpinner spinner1;
+    private JTextArea textArea1;
 
-    public InputDlg() {
+    public MonthCalDlg() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
@@ -47,12 +51,5 @@ public class InputDlg extends JDialog {
     private void onCancel() {
 // add your code here if necessary
         dispose();
-    }
-
-    public static void main(String[] args) {
-        InputDlg dialog = new InputDlg();
-        dialog.pack();
-        dialog.setVisible(true);
-       System.exit(0);
     }
 }

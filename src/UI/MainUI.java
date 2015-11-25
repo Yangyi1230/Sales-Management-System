@@ -1,3 +1,5 @@
+package UI;
+
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -16,8 +18,8 @@ public class MainUI extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
+        monthSaleCalulaterButton = new JButton();
 
-// call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
@@ -31,15 +33,17 @@ public class MainUI extends JDialog {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-        inputButton.addActionListener(new ActionListener() {
+//        ActLer listener  = new ActLer();
+//        monthSaleCalulaterButton.addActionListener(listener);
+        monthSaleCalulaterButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                 onInput();
+                onMonthCal();
             }
         });
     }
 
-    public void onInput() {
-        new InputDlg();
+    public void onMonthCal() {
+        new MonthCalDlg();
     }
 
     private void onOK() {
