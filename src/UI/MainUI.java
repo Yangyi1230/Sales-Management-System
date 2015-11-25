@@ -33,45 +33,75 @@ public class MainUI extends JDialog{
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-//        ActLer listener  = new ActLer();
-//        monthSaleCalulaterButton.addActionListener(listener);
-        MouseD mo = new MouseD();
-    monthSaleCalulaterButton.addMouseListener(mo);
-}
 
-    public class MouseD extends WindowAdapter implements MouseListener {
-//        JLabel label = null;
-        public  void mouseClicked(MouseEvent e) {
-            new MonthCalDlg();
-            MonthCalDlg dialog2 = new MonthCalDlg();
-            dialog2.pack();
-            dialog2.setVisible(true);
+    monthSaleCalulaterButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            onMonthCal();
         }
-        public void mousePressed(MouseEvent e) {
-        }
+    });
 
-        public void mouseReleased(MouseEvent e) {
-//            label.setText("你已经放开鼠标按钮");
-        }
+        percentageCountButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {onPercentagecount();}
+        });
 
-        public void mouseEntered(MouseEvent e) {
-//            label.setText("鼠标光标进入按钮");
-        }
-        public void mouseExited(MouseEvent e) {
-//            label.setText("鼠标光标离开按钮");
-        }
-        public void windowClosing(WindowEvent e) {
-            System.exit(0);
-        }
+        inputButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {onInput();}
+        });
 
+        totalSaleCalculaterButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {onTotalSaleCalculater();}
+        });
+        royaltyGeneratorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {onRoyaltyGenerator();}
+        });
+        reportProducerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {onReportProducer();}
+        });
     }
-//    public void onMonthCal() {
-//        new MonthCalDlg();
-//    }
 
     private void onOK() {
 // add your code here
         dispose();
+    }
+
+    private void onPercentagecount() {
+// add your code here
+        PercentagesCouDlg dialog = new PercentagesCouDlg();
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+
+    public void onTotalSaleCalculater() {
+        TotalSaleCalculaterDlg dialog = new TotalSaleCalculaterDlg();
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+    public void onRoyaltyGenerator() {
+        RoyaltyGeneratorDlg dialog = new RoyaltyGeneratorDlg();
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+    public void onReportProducer() {
+        ReportProducerDlg dialog = new ReportProducerDlg();
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+    public void onInput() {
+        InputDlg dialog = new InputDlg();
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+
+    public void onMonthCal() {
+        MonthCalDlg dialog = new MonthCalDlg();
+        dialog.pack();
+        dialog.setVisible(true);
     }
 
     private void onCancel() {
