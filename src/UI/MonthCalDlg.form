@@ -66,7 +66,9 @@
             <constraints>
               <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
-            <properties/>
+            <properties>
+              <enabled value="true"/>
+            </properties>
           </component>
           <component id="78fa8" class="javax.swing.JLabel">
             <constraints>

@@ -3,7 +3,7 @@ package UI;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class MainUI extends JDialog {
+public class MainUI extends JDialog{
     private JPanel contentPane;
     private JButton inputButton;
     private JButton percentageCountButton;
@@ -18,7 +18,7 @@ public class MainUI extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
-        monthSaleCalulaterButton = new JButton();
+//        monthSaleCalulaterButton = new JButton();
 
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -35,16 +35,39 @@ public class MainUI extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 //        ActLer listener  = new ActLer();
 //        monthSaleCalulaterButton.addActionListener(listener);
-        monthSaleCalulaterButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onMonthCal();
-            }
-        });
-    }
+        MouseD mo = new MouseD();
+    monthSaleCalulaterButton.addMouseListener(mo);
+}
 
-    public void onMonthCal() {
-        new MonthCalDlg();
+    public class MouseD extends WindowAdapter implements MouseListener {
+//        JLabel label = null;
+        public  void mouseClicked(MouseEvent e) {
+            new MonthCalDlg();
+            MonthCalDlg dialog2 = new MonthCalDlg();
+            dialog2.pack();
+            dialog2.setVisible(true);
+        }
+        public void mousePressed(MouseEvent e) {
+        }
+
+        public void mouseReleased(MouseEvent e) {
+//            label.setText("你已经放开鼠标按钮");
+        }
+
+        public void mouseEntered(MouseEvent e) {
+//            label.setText("鼠标光标进入按钮");
+        }
+        public void mouseExited(MouseEvent e) {
+//            label.setText("鼠标光标离开按钮");
+        }
+        public void windowClosing(WindowEvent e) {
+            System.exit(0);
+        }
+
     }
+//    public void onMonthCal() {
+//        new MonthCalDlg();
+//    }
 
     private void onOK() {
 // add your code here
