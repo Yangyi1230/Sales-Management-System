@@ -41,53 +41,87 @@ public class MainUI extends JDialog {
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
-        MouseD mo = new MouseD();
-        monthSaleCalulaterButton.addMouseListener(mo);
+
+        monthSaleCalulaterButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                onMonthCal();
+            }
+        });
 
         Dimension screensize=Toolkit.getDefaultToolkit().getScreenSize();
         int Swing1x=500;
         int Swing1y=300;
         this.setBounds(screensize.width/2-Swing1x/2,screensize.height/2-Swing1y/2,Swing1x,Swing1y);
+
+        inputButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                onInput();
+            }
+        });
+        percentageCountButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                onPercentageCount();
+            }
+        });
+        totalSaleCalculaterButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                onTotalSaleCalculater();
+            }
+        });
+        royaltyGeneratorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                onRoyaltyGenerator();
+            }
+        });
+        reportProducerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                onReportProducer();
+            }
+        });
     }
 
-
-    public class MouseD extends WindowAdapter implements MouseListener {
-        //        JLabel label = null;
-        public void mouseClicked(MouseEvent e) {
-            new MonthCalDlg(saleSystem);
-            MonthCalDlg monthCalDlg = new MonthCalDlg(saleSystem);
-            monthCalDlg.pack();
-            monthCalDlg.setVisible(true);
-        }
-
-        public void mousePressed(MouseEvent e) {
-        }
-
-        public void mouseReleased(MouseEvent e) {
-//            label.setText("���Ѿ��ſ���갴ť");
-        }
-
-        public void mouseEntered(MouseEvent e) {
-//            label.setText("�������밴ť");
-        }
-
-        public void mouseExited(MouseEvent e) {
-//            label.setText("������뿪��ť");
-        }
-
-        public void windowClosing(WindowEvent e) {
-            System.exit(0);
-        }
-
+    public void onInput() {
+        InputDlg dialog = new InputDlg();
+        dialog.pack();
+        dialog.setVisible(true);
     }
-//    public void onMonthCal() {
-//        new MonthCalDlg();
+    public void onPercentageCount() {
+        PercentagesCouDlg dialog = new PercentagesCouDlg();
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+    public void onTotalSaleCalculater() {
+        TotalSaleCalculaterDlg dialog = new TotalSaleCalculaterDlg();
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+    public void onRoyaltyGenerator() {
+        RoyaltyGeneratorDlg dialog = new RoyaltyGeneratorDlg();
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+    public void onReportProducer() {
+        ReportProducerDlg dialog = new ReportProducerDlg();
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+
+    public void onMonthCal() {
+        MonthCalDlg monthCalDlg = new MonthCalDlg(saleSystem);
+        monthCalDlg.pack();
+        monthCalDlg.setVisible(true);
+    }
+
+//    private void onOK() {
+//// add your code here
+//        dispose();
 //    }
-
-    private void onOK() {
-// add your code here
-        dispose();
-    }
 
     private void onCancel() {
 // add your code here if necessary

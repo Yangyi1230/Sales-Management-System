@@ -1,9 +1,7 @@
-package UI;
-
 import javax.swing.*;
 import java.awt.event.*;
 
-public class PercentagesCouDlg extends JDialog {
+public class TotalSaleCalculaterDlg extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
@@ -11,7 +9,7 @@ public class PercentagesCouDlg extends JDialog {
     private JTextArea textArea1;
     private JSpinner spinner2;
 
-    public PercentagesCouDlg() {
+    public TotalSaleCalculaterDlg() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
@@ -55,7 +53,7 @@ public class PercentagesCouDlg extends JDialog {
     }
 
     public static void main(String[] args) {
-        PercentagesCouDlg dialog = new PercentagesCouDlg();
+        TotalSaleCalculaterDlg dialog = new TotalSaleCalculaterDlg();
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);

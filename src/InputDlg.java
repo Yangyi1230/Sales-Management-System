@@ -1,17 +1,17 @@
-package UI;
-
 import javax.swing.*;
 import java.awt.event.*;
 
-public class TotalSaleCalculaterDlg extends JDialog {
+public class InputDlg extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
-    private JSpinner spinner1;
-    private JTextArea textArea1;
-    private JSpinner spinner2;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JTextField textField4;
+    private JTextField textField5;
 
-    public TotalSaleCalculaterDlg() {
+    public InputDlg() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
@@ -55,7 +55,7 @@ public class TotalSaleCalculaterDlg extends JDialog {
     }
 
     public static void main(String[] args) {
-        TotalSaleCalculaterDlg dialog = new TotalSaleCalculaterDlg();
+        InputDlg dialog = new InputDlg();
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);
