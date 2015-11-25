@@ -1,13 +1,15 @@
+import java.io.Serializable;
+
 /**
  * Created by Jingshun on 2015/11/16.
  */
-public class ProductInformation {
+public class ProductInformation   implements Serializable{
     Clerk clerk;
     Date date;
     Product product;
     int amount;
 
-    public ProductInformation() {
+    public ProductInformation(){
         clerk = new Clerk();
         date = new Date();
         product = new Product();

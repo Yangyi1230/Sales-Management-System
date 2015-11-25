@@ -1,8 +1,10 @@
+import java.io.Serializable;
+
 /**
  * Created by 景舜 on 2015/11/15.
  */
 //
-public class Clerk {
+public class Clerk implements Serializable {
     int id;
     String name;
 

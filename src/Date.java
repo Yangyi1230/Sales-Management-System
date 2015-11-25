@@ -1,7 +1,9 @@
+import java.io.Serializable;
+
 /**
  * Created by chenhao on 11/13/15.
  */
-public class Date {
+public class Date implements Serializable {
 
     int date;
     int month;

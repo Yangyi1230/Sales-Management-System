@@ -2,14 +2,10 @@
  * Created by 景舜 on 2015/11/16.
  */
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.Iterator;
 
-public class DataTransition {
-
-
+public class DataTransition{
 
 //    public void initialization(String OldRecord, ProductInfoList productInfoList, String ClerkInfoDB, ClerkList clerkList,
 //                               String ProductInfoDB, ProductList pdList, ReceiptCatalog catalog){
@@ -166,5 +162,71 @@ public class DataTransition {
             list.add(item);
         }
         return list;
+    }
+
+    public  void SerialToFile(ProductInfoList productInfoList) throws Exception {
+//        File file = new File("productInfoList.obj");
+//        ObjectOutputStream oout = new ObjectOutputStream(new FileOutputStream(file));
+//
+//        Iterator iter = productInfoList.iterator();
+//        while(iter.hasNext()){
+//            ProductInformation proInfo = (ProductInformation) iter.next();
+//            oout.writeObject(proInfo);
+//        }
+
+        File file = new File("productInfoList.obj");
+        ObjectOutputStream oout = new ObjectOutputStream(new FileOutputStream(file));
+        oout.writeObject(productInfoList);
+        oout.close();
+
+    }
+    public  void SerialToFile( ReceiptCatalog receiptCatalog) throws Exception{
+        File file = new File("receiptCatalog.obj");
+        ObjectOutputStream oout = new ObjectOutputStream(new FileOutputStream(file));
+        oout.writeObject(receiptCatalog);
+        oout.close();
+    }
+    public  void SerialToFile(ClerkList clerkList) throws Exception{
+        File file = new File("clerkList.obj");
+        ObjectOutputStream oout = new ObjectOutputStream(new FileOutputStream(file));
+        oout.writeObject(clerkList);
+        oout.close();
+    }
+    public  void SerialToFile(ProductList productList) throws Exception{
+        File file = new File("productList.obj");
+        ObjectOutputStream oout = new ObjectOutputStream(new FileOutputStream(file));
+        oout.writeObject(productList);
+        oout.close();
+    }
+    public  void SerialToFile(ProductInfoList productInfoList, ReceiptCatalog receiptCatalog, ClerkList clerkList, ProductList productList) throws Exception {
+        SerialToFile(productInfoList);
+        SerialToFile(receiptCatalog);
+        SerialToFile(productList);
+        SerialToFile(clerkList);
+    }
+    public  ProductInfoList SerialFromProductInfoList() throws Exception {
+        ObjectInputStream oin = new ObjectInputStream(new FileInputStream("productInfoList.obj"));
+        ProductInfoList productInfoList = (ProductInfoList)oin.readObject();
+        oin.close();
+        return productInfoList;
+    }
+
+    public  ReceiptCatalog SerialFromReceiptCatalog() throws Exception {
+        ObjectInputStream oin = new ObjectInputStream(new FileInputStream("receiptCatalog.obj"));
+        ReceiptCatalog receiptCatalog = (ReceiptCatalog)oin.readObject();
+        oin.close();
+        return receiptCatalog;
+    }
+    public  ClerkList SerialFromClerkList() throws Exception {
+        ObjectInputStream oin = new ObjectInputStream(new FileInputStream("clerkList.obj"));
+        ClerkList clerkList = (ClerkList)oin.readObject();
+        oin.close();
+        return clerkList;
+    }
+    public  ProductList SerialFromProductList() throws Exception {
+        ObjectInputStream oin = new ObjectInputStream(new FileInputStream("productList.obj"));
+        ProductList productList = (ProductList)oin.readObject();
+        oin.close();
+        return productList;
     }
 }

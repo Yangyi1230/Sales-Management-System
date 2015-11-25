@@ -1,7 +1,9 @@
+import java.io.Serializable;
+
 /**
  * Created by chenhao on 11/13/15.
  */
-public class Product {
+public class Product implements Serializable {
 
     protected int price;
     protected int id;

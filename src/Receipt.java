@@ -1,8 +1,10 @@
+import java.io.Serializable;
+
 /**
  * Created by chenhao on 11/13/15.
  */
 
-public class Receipt {
+public class Receipt implements Serializable {
     Clerk clerk;
     Date date;
     int towelAmount; // 3
