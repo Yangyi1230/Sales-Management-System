@@ -6,8 +6,8 @@
       <xy x="48" y="54" width="680" height="420"/>
     </constraints>
     <properties>
-      <minimumSize width="680" height="420"/>
-      <preferredSize width="300" height="200"/>
+      <minimumSize width="400" height="300"/>
+      <preferredSize width="600" height="400"/>
     </properties>
     <border type="none"/>
     <children>
@@ -83,7 +83,7 @@
             <border type="none"/>
             <children/>
           </grid>
-          <component id="564e5" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+          <component id="564e5" class="javax.swing.JTextArea" binding="result">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="6" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="50"/>
@@ -101,11 +101,15 @@
               <text value="Clerk"/>
             </properties>
           </component>
-          <component id="63f3d" class="javax.swing.JSpinner" binding="spinner2" default-binding="true">
+          <component id="4dd42" class="javax.swing.JTextField" binding="clerkName">
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <text value=""/>
+            </properties>
           </component>
         </children>
       </grid>

@@ -13,7 +13,7 @@ public class MainUI extends JDialog {
     private JButton reportProducerButton;
     private JButton buttonOK;
     private JButton buttonCancel;
-    public SaleSystem saleSystem;
+    public static SaleSystem saleSystem;
 
 
     public MainUI(SaleSystem saleSystem) {
@@ -87,17 +87,17 @@ public class MainUI extends JDialog {
     }
 
     public void onInput() {
-        InputDlg dialog = new InputDlg();
+        InputDlg dialog = new InputDlg(saleSystem);
         dialog.pack();
         dialog.setVisible(true);
     }
     public void onPercentageCount() {
-        PercentagesCouDlg dialog = new PercentagesCouDlg();
+        PercentagesCouDlg dialog = new PercentagesCouDlg(saleSystem);
         dialog.pack();
         dialog.setVisible(true);
     }
     public void onTotalSaleCalculater() {
-        TotalSaleCalculaterDlg dialog = new TotalSaleCalculaterDlg();
+        TotalSaleCalculaterDlg dialog = new TotalSaleCalculaterDlg(saleSystem);
         dialog.pack();
         dialog.setVisible(true);
     }
@@ -107,7 +107,7 @@ public class MainUI extends JDialog {
         dialog.setVisible(true);
     }
     public void onReportProducer() {
-        ReportProducerDlg dialog = new ReportProducerDlg();
+        ReportProducerDlg dialog = new ReportProducerDlg(saleSystem);
         dialog.pack();
         dialog.setVisible(true);
     }

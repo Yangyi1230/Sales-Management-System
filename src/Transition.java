@@ -36,7 +36,7 @@ public class Transition {
 
 
     //    return ReceiptList of all record of certain clerkName in certain month
-    ReceiptCatalog getClerkMonthRecord(int month, String clerkName){
+    public static ReceiptCatalog getClerkMonthRecord(int month, String clerkName){
 
         //initialise
         ReceiptCatalog monthReceipt=new ReceiptCatalog();
@@ -60,7 +60,7 @@ public class Transition {
     }
 
     //    计算指定商品在特定Receipt List内销售数量总和
-    int getProTotalAmount(int proId, ReceiptCatalog rc) {
+    public static int getProTotalAmount(int proId, ReceiptCatalog rc) {
         int amount=0;
 
         Iterator iter=rc.iterator();
@@ -75,7 +75,7 @@ public class Transition {
     }
 
     //计算指定商品指定月份销售数量总和
-    int getProMonthAmount(int proId,int month, ReceiptCatalog rc){
+    public static int getProMonthAmount(int proId,int month, ReceiptCatalog rc){
         int amount=0;
         Iterator iterator=catalog.iterator();
         while(iterator.hasNext()){
@@ -90,7 +90,7 @@ public class Transition {
 
 
     //    get each clerkName total sale product amount every month，每月销售货品总数
-    int getClerkTotalProAmountPerMonth(int month, String clerkName){
+    public static int getClerkTotalProAmountPerMonth(int month, String clerkName){
 
         int total=0;
 
@@ -107,7 +107,7 @@ public class Transition {
         return total;
     }
 
-    int getProPriceById(int proId){
+    public static int getProPriceById(int proId){
         int price=0;
         Iterator iterator=productList.iterator();
         while(iterator.hasNext()){
@@ -121,7 +121,7 @@ public class Transition {
     }
 
     //每月销售所有货品金额总数
-    int getClerkTotalSaleAmountPerMonth(int month, String clerkName){
+    public static int getClerkTotalSaleAmountPerMonth(int month, String clerkName){
         int saleAmount=0;
 
         ReceiptCatalog monthRecord=getClerkMonthRecord(month,clerkName);
@@ -136,7 +136,7 @@ public class Transition {
         return saleAmount;
     }
 
-    String getClerkNameById(int clerkId){
+    public static String getClerkNameById(int clerkId){
         String name="";
         Clerk temp;
         Iterator iterator=clerkList.iterator();
@@ -148,5 +148,7 @@ public class Transition {
         }
         return name;
     }
+
+
 
 }

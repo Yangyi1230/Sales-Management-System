@@ -14,7 +14,9 @@ public class MonthCalDlg extends JDialog {
         this.saleSystem=saleSystem;
 
         clerkName.setText(saleSystem.account.getUserName());
+
         setContentPane(contentPane);
+
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
 

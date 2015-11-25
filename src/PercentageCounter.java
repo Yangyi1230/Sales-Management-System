@@ -25,7 +25,7 @@ public class PercentageCounter extends Transition {
 
 //        System.out.println("clerkTotal: "+clerkTotal);
         percent= ((float)clerkTotal)/((float)total);
-        percent=(float)Math.round(percent*100)/100;//保留两位小数
+        percent=(float)Math.round(percent*10000)/10000;//保留两位小数
 //        System.out.println("getProPercentageCounterResult result: " + percent);
 
         return percent;
@@ -51,7 +51,7 @@ public class PercentageCounter extends Transition {
         clerkTotal= getClerkTotalSaleAmountPerMonth(month, clerkName);
 
         percent= ((float)clerkTotal)/((float)total);
-        percent=(float)Math.round(percent*100)/100;//保留两位小数
+        percent=(float)Math.round(percent*10000)/10000;//保留两位小数
 
         System.out.println("getSalePercentageCounterResult: "+percent);
         return percent;

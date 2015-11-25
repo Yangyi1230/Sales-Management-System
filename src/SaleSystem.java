@@ -8,6 +8,7 @@ public class SaleSystem {
     public InformationInput informationInput;
     public ReportProducer reportProducer;
     public PercentageCounter percentageCounter;
+    public TotalSaleCalculator totalSaleCalculator;
     public Account account;
     public SaleSystem() {
         String or =new String("/TXT/OldRecord.txt") ;
@@ -18,6 +19,7 @@ public class SaleSystem {
         informationInput =new InformationInput();
         reportProducer=new ReportProducer();
         percentageCounter=new PercentageCounter();
+        totalSaleCalculator=new TotalSaleCalculator();
         account=new Account("Tom");
     }
 }

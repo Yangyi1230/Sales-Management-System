@@ -25,5 +25,8 @@ public class InformationInput extends Transition {
         productInformation.product.setId(proId);
 
         productInfoList.add(productInformation);
+
+        //refresh the catalog
+        catalog=dataTransition.generateReceiptCatalog(productInfoList);
     }
 }
