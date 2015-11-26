@@ -13,6 +13,8 @@ public class ReportProducerDlg extends JDialog {
     private JButton buttonCancel;
     private JSpinner spinner1;
     private JPanel TablePanel;
+    private JPanel contentArea;
+    private JPanel operatePanel;
     SaleSystem saleSystem;
 
     public ReportProducerDlg(SaleSystem saleSystem) {
@@ -59,8 +61,9 @@ public class ReportProducerDlg extends JDialog {
     private void onOK() {
 // add your code here
 //        dispose();
+        JScrollPane scroll;
 
-        int month=(int)spinner1.getValue();
+         int month=(int)spinner1.getValue();
 
         String[] columnNames={"员工","pillow","curtain","towel","bath mat","quilt","总销售额"};
 
@@ -128,22 +131,30 @@ public class ReportProducerDlg extends JDialog {
         table.setFont(new Font("Menu.font", Font.PLAIN, 14));
         table.getTableHeader().setFont(new Font("Menu.font", Font.BOLD, 15));
         /*用JScrollPane装载JTable，这样超出范围的列就可以通过滚动条来查看*/
-        JScrollPane scroll = new JScrollPane(table);
-        scroll.setSize(700, 400);
+
+        scroll = new JScrollPane(table);
+        TablePanel.removeAll();
+
+        TablePanel.setLayout(new BoxLayout(TablePanel,BoxLayout.Y_AXIS));
+        TablePanel.add(scroll);
+        //scroll.setSize(700, 400);
+        //TablePanel.add(scroll);
+
+        TablePanel.revalidate();
+
         table.setRowSelectionAllowed(true);//设置JTable可被选择
-        table .setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        //设置JTable为单行选择
+        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);//设置JTable为单行选择
         table.getTableHeader().setBackground(new Color(206,231,255));//设置JTable表头颜色
         table.getTableHeader().setReorderingAllowed(false);//设置JTable每个字段的顺序不可以改变
         table.getTableHeader().setResizingAllowed(false); //设置JTable每个表头的大小不可以改变
         makeFace(table);//设置JTable 颜色
 
-        add(scroll);
+        //add(scroll);
 
-        TablePanel.add(table);
 
-        table.setBounds(screensize.width / 2 - Swing1x / 2, screensize.height / 2 - Swing1y / 2, Swing1x, Swing1y);
+        //table.setBounds(screensize.width / 2 - Swing1x / 2, screensize.height / 2 - Swing1y / 2, Swing1x, Swing1y);
         table.setVisible(true);
+        //contentArea.remove(scroll);
 
 
 

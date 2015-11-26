@@ -9,7 +9,7 @@ public class PercentageCounter extends Transition {
     }
 
     float getProPercentageCounterResult(int month, String clerkName){
-
+        
         int total=0;
         float percent=0;
 
