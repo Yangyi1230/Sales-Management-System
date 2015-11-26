@@ -73,7 +73,9 @@
                 <preferred-size width="150" height="50"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <font name="Comic Sans MS" size="20"/>
+            </properties>
           </component>
           <component id="beee" class="javax.swing.JLabel">
             <constraints>

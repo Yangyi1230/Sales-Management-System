@@ -184,7 +184,7 @@
         </constraints>
         <properties>
           <font name="Marker Felt" size="26" style="0"/>
-          <text value="SaleManagement"/>
+          <text value="Sale Management System"/>
         </properties>
       </component>
     </children>

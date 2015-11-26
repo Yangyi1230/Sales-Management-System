@@ -60,7 +60,7 @@ public class TotalSaleCalculaterDlg extends JDialog {
         String name="Towel";
         productName.setText(name);
         int total=saleSystem.totalSaleCalculator.getTotalSaleCalculator(proID);
-        result.setText("商品销售总额："+total+ " 件");
+        result.setText("product total sale volume ："+total);
     }
 
     private void onCancel() {

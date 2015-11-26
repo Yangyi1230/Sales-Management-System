@@ -15,6 +15,7 @@ public class MonthCalDlg extends JDialog {
 
         clerkName.setText(saleSystem.account.getUserName());
 
+
         setContentPane(contentPane);
 
         setModal(true);
@@ -61,7 +62,7 @@ public class MonthCalDlg extends JDialog {
         int month = (int) spinner1.getValue();
         int total=saleSystem.monthSaleCalculator.getClerkTotalSaleAmountPerMonth(month, saleSystem.account.getUserName());
 
-        resultArea.setText(Integer.toString(total));
+        resultArea.setText("month sale amount: "+Integer.toString(total)+"$");
     }
     private void onCancel() {
 // add your code here if necessary

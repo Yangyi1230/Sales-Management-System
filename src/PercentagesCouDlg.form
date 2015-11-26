@@ -90,6 +90,7 @@
               </grid>
             </constraints>
             <properties>
+              <font name="Comic Sans MS" size="20"/>
               <text value=""/>
             </properties>
           </component>
