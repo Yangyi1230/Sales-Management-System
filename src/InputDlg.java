@@ -71,6 +71,8 @@ public class InputDlg extends JDialog {
         } else {
 
             saleSystem.informationInput.input(Integer.parseInt(clerkID.getText()), Integer.parseInt(month.getText()), Integer.parseInt(day.getText()), Integer.parseInt(productID.getText()), Integer.parseInt(amount.getText()));
+            saleSystem.SaveData();
+
             clerkID.setText("");
             month.setText("");
             day.setText("");

@@ -24,12 +24,17 @@ public class Transition {
     public Transition() {
     }
 
-    static public void initial(String ProductInfoDB, String ClerkInfoDB, String OldRecord ){
+    static public void initial (String ProductInfoDB, String ClerkInfoDB, String OldRecord ) throws Exception{
      //   dataTransition.initialization(ProductInfoDB,productInfoList,ClerkInfoDB,clerkList,OldRecord,productList,catalog);
-        productInfoList = dataTransition.generateProListFromFile(Main.class.getResource(OldRecord).getFile());
-        clerkList = dataTransition.generateClerkList(Main.class.getResource(ClerkInfoDB).getFile());
-        productList = dataTransition.generateProductList(Main.class.getResource(ProductInfoDB).getFile());
-        catalog = dataTransition.generateReceiptCatalog(productInfoList);
+//        productInfoList = dataTransition.generateProListFromFile(Main.class.getResource(OldRecord).getFile());
+//        clerkList = dataTransition.generateClerkList(Main.class.getResource(ClerkInfoDB).getFile());
+//        productList = dataTransition.generateProductList(Main.class.getResource(ProductInfoDB).getFile());
+//        catalog = dataTransition.generateReceiptCatalog(productInfoList);
+
+        clerkList= dataTransition.SerialFromClerkList();
+        productInfoList=dataTransition.SerialFromProductInfoList();
+        productList=dataTransition.SerialFromProductList();
+        catalog=dataTransition.generateReceiptCatalog(productInfoList);
     }
 
 
