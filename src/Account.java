@@ -3,6 +3,7 @@
  */
 public class Account {
     public String userName;
+    
 
     public String getUserName() {
         return userName;
