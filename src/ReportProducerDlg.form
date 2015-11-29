@@ -3,7 +3,7 @@
   <grid id="cbd77" binding="contentPane" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="10" left="10" bottom="10" right="10"/>
     <constraints>
-      <xy x="48" y="54" width="500" height="400"/>
+      <xy x="48" y="54" width="689" height="546"/>
     </constraints>
     <properties>
       <minimumSize width="400" height="300"/>
@@ -59,24 +59,129 @@
         <properties/>
         <border type="none"/>
         <children>
-          <grid id="79f49" binding="operatePanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+          <grid id="79f49" binding="operatePanel" layout-manager="GridBagLayout">
             <constraints border-constraint="North"/>
             <properties/>
-            <border type="none"/>
+            <border type="line"/>
             <children>
-              <component id="41f9d" class="javax.swing.JSpinner" binding="spinner1" default-binding="true">
-                <constraints border-constraint="Center"/>
-                <properties/>
-              </component>
-              <component id="b3a7b" class="javax.swing.JLabel">
-                <constraints border-constraint="West"/>
+              <component id="41f9d" class="javax.swing.JSpinner" binding="monthSpinner">
+                <constraints>
+                  <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="0.0"/>
+                </constraints>
                 <properties>
+                  <enabled value="false"/>
+                </properties>
+              </component>
+              <component id="e66e1" class="javax.swing.JRadioButton" binding="monthRadioButton">
+                <constraints>
+                  <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <selected value="false"/>
                   <text value="Month"/>
                 </properties>
               </component>
-              <vspacer id="386a4">
-                <constraints border-constraint="East"/>
-              </vspacer>
+              <component id="8823a" class="javax.swing.JRadioButton" binding="dayRadioButton">
+                <constraints>
+                  <grid row="0" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Day"/>
+                </properties>
+              </component>
+              <component id="90f1c" class="javax.swing.JSpinner" binding="dayMonthSpinner">
+                <constraints>
+                  <grid row="0" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <enabled value="false"/>
+                </properties>
+              </component>
+              <component id="1701a" class="javax.swing.JSpinner" binding="dayDaySpinner">
+                <constraints>
+                  <grid row="0" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <enabled value="false"/>
+                </properties>
+              </component>
+              <component id="3bd21" class="javax.swing.JSpinner" binding="quarterSpinner">
+                <constraints>
+                  <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <enabled value="false"/>
+                </properties>
+              </component>
+              <component id="652d2" class="javax.swing.JRadioButton" binding="quarterRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Quarter"/>
+                </properties>
+              </component>
+              <component id="43128" class="javax.swing.JSpinner" binding="yearSpinner">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <enabled value="false"/>
+                </properties>
+              </component>
+              <component id="1b55d" class="javax.swing.JRadioButton" binding="yearRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Year"/>
+                </properties>
+              </component>
+              <hspacer id="45103">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="3.0" weighty="0.0"/>
+                </constraints>
+              </hspacer>
+              <hspacer id="25608">
+                <constraints>
+                  <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="3.0" weighty="0.0"/>
+                </constraints>
+              </hspacer>
+              <hspacer id="ba134">
+                <constraints>
+                  <grid row="0" column="8" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="3.0" weighty="0.0"/>
+                </constraints>
+              </hspacer>
+              <component id="7c5a1" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="M"/>
+                </properties>
+              </component>
+              <component id="a3317" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="D"/>
+                </properties>
+              </component>
             </children>
           </grid>
           <grid id="2b257" binding="TablePanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

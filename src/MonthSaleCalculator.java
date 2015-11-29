@@ -16,7 +16,7 @@ public class MonthSaleCalculator extends Transition {
 
         //amount=getProAmount(proId,temp);
 
-        amount= getProTotalAmount(proId, temp);
+        amount= getProTotalAmountByGivenList(proId, temp);
 
 //        System.out.println("MonthSaleCalculator result: " + amount);
         return amount;

@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.*;
 
-public class RoyaltyGeneratorDlg extends JDialog {
+public class SalaryCounterDlg extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
@@ -9,7 +9,7 @@ public class RoyaltyGeneratorDlg extends JDialog {
     private JSpinner spinner1;
     private JSpinner spinner2;
 
-    public RoyaltyGeneratorDlg() {
+    public SalaryCounterDlg() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
@@ -53,7 +53,7 @@ public class RoyaltyGeneratorDlg extends JDialog {
     }
 
     public static void main(String[] args) {
-        RoyaltyGeneratorDlg dialog = new RoyaltyGeneratorDlg();
+        SalaryCounterDlg dialog = new SalaryCounterDlg();
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);

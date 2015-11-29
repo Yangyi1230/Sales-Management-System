@@ -10,7 +10,7 @@ public class SaleSystem {
     public PercentageCounter percentageCounter;
     public TotalSaleCalculator totalSaleCalculator;
     public Account account;
-    public SaleSystem() {
+    public SaleSystem(String userName) {
         String or =new String("/TXT/OldRecord.txt") ;
         String ci =new String("/TXT/ClerkInfoDB.txt") ;
         String pid=new String("/TXT/ProductInfoDB.txt");
@@ -26,12 +26,13 @@ public class SaleSystem {
         reportProducer=new ReportProducer();
         percentageCounter=new PercentageCounter();
         totalSaleCalculator=new TotalSaleCalculator();
-        account=new Account("Tom");
+        account=new Account(userName);
     }
 
-    public void SaveData(){
+    public static void SaveData(){
         try {
             Transition.dataTransition.SerialToFile(Transition.productInfoList, Transition.catalog, Transition.clerkList, Transition.productList);
+            System.out.println("saved to DB");
         }catch (Exception e){
             System.out.print("save data error");
         }

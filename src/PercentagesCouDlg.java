@@ -56,8 +56,6 @@ public class PercentagesCouDlg extends JDialog {
     }
 
     private void onOK() {
-// add your code here
-//        dispose();
         result.setText("");
         int month = (int) spinner1.getValue();
         float percent1=saleSystem.percentageCounter.getProPercentageCounterResult(month,saleSystem.account.getUserName())*100;

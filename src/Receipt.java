@@ -12,6 +12,15 @@ public class Receipt implements Serializable {
     int curtainAmount;// 2
     int bathmatAmount;// 4
     int quiltAmount;// 5
+    int sheetAmount;
+
+    public int getSheetAmount() {
+        return sheetAmount;
+    }
+
+    public void setSheetAmount(int sheetAmount) {
+        this.sheetAmount = sheetAmount;
+    }
 
     Receipt(){
         clerk = new Clerk();
@@ -21,6 +30,7 @@ public class Receipt implements Serializable {
         curtainAmount = 0;
         bathmatAmount = 0;
         quiltAmount = 0;
+        sheetAmount=0;
     }
 
     public Receipt(Clerk clerk, Date date) {
@@ -31,6 +41,7 @@ public class Receipt implements Serializable {
         curtainAmount = 0;
         bathmatAmount = 0;
         quiltAmount = 0;
+        sheetAmount=0;
     }
 
     public void setAmountById(int proId, int amount){
@@ -50,6 +61,8 @@ public class Receipt implements Serializable {
             case 5:
                 quiltAmount =amount;
                 break;
+            case 6:
+                sheetAmount=amount;
         }
     }
 
@@ -74,6 +87,8 @@ public class Receipt implements Serializable {
             case 5:
                 amount=getQuiltAmount();
                 break;
+            case 6:
+                amount=getSheetAmount();
         }
 
 //        System.out.println("getAmountById result: "+amount);
@@ -84,7 +99,7 @@ public class Receipt implements Serializable {
 //    need change ...
     public int getTotalProAmountPerReceipt(){
         int total=0;
-        total+=getBathmatAmount()+getCurtainAmount()+getPillowAmount()+getQuiltAmount()+getTowelAmount();
+        total+=getBathmatAmount()+getCurtainAmount()+getPillowAmount()+getQuiltAmount()+getTowelAmount()+getSheetAmount();
         return total;
     }
 

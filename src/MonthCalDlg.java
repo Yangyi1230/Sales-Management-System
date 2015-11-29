@@ -57,13 +57,14 @@ public class MonthCalDlg extends JDialog {
     }
 
     private void onOK() {
-// add your code here
-        //dispose();
+
         int month = (int) spinner1.getValue();
         int total=saleSystem.monthSaleCalculator.getClerkTotalSaleAmountPerMonth(month, saleSystem.account.getUserName());
 
         resultArea.setText("month sale amount: "+Integer.toString(total)+"$");
     }
+
+
     private void onCancel() {
 // add your code here if necessary
         dispose();

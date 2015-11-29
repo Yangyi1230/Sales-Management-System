@@ -64,8 +64,28 @@ public class Transition {
         return monthReceipt;
     }
 
-    //    计算指定商品在特定Receipt List内销售数量总和
-    public static int getProTotalAmount(int proId, ReceiptCatalog rc) {
+    public static ReceiptCatalog getClerkDayRecord(int day,int month, String clerkName){
+        ReceiptCatalog monthReceipt=new ReceiptCatalog();
+
+        Iterator iterator =catalog.iterator();
+        Receipt r;
+
+        while(iterator.hasNext()){
+            r=(Receipt)iterator.next();
+            if(r.clerk.getName().equals(clerkName)&&r.date.getMonth()==month&&r.date.getDate()==day){
+                monthReceipt.add(r);
+            }
+        }
+
+        return monthReceipt;
+
+
+    }
+
+
+
+        //    计算指定商品在特定Receipt List内销售数量总和
+    public static int getProTotalAmountByGivenList(int proId, ReceiptCatalog rc) {
         int amount=0;
 
         Iterator iter=rc.iterator();
@@ -74,7 +94,7 @@ public class Transition {
             amount+=r.getAmountById(proId);
         }
 
-//        System.out.println("getProTotalAmount result: " + amount );
+//        System.out.println("getProTotalAmountByGivenList result: " + amount );
         return amount;
 
     }
@@ -92,9 +112,22 @@ public class Transition {
         return amount;
     }
 
+    public static int getProDayAmount(int proId,int day,int month, ReceiptCatalog rc){
+        int amount=0;
+        Iterator iterator=catalog.iterator();
+        while(iterator.hasNext()){
+            Receipt r=(Receipt)iterator.next();
+            if(r.date.getMonth()==month&&r.date.getDate()==day){
+                amount+=r.getAmountById(proId);
+            }
+        }
+        return amount;
+    }
 
 
-    //    get each clerkName total sale product amount every month，每月销售货品总数
+
+
+        //    get each clerkName total sale product amount every month，每月销售货品总数
     public static int getClerkTotalProAmountPerMonth(int month, String clerkName){
 
         int total=0;
@@ -134,14 +167,27 @@ public class Transition {
 
         while(iterator.hasNext()){
             Product product=(Product)iterator.next();
-            saleAmount+= getProTotalAmount(product.getId(), monthRecord)*getProPriceById(product.getId());
+            saleAmount+= getProTotalAmountByGivenList(product.getId(), monthRecord)*getProPriceById(product.getId());
         }
-
-//        System.out.println("getClerkTotalSaleAmountPerMonth: "+saleAmount);
         return saleAmount;
     }
 
-    public static String getClerkNameById(int clerkId){
+    //每日销售所有货物金额总数
+    public static int getClerkTotalSaleAmountPerDay(int day, int month, String clerkName) {
+        int saleAmount=0;
+
+        ReceiptCatalog dayRecord=getClerkDayRecord(day,month,clerkName);
+        Iterator iterator=productList.iterator();
+
+        while(iterator.hasNext()){
+            Product product=(Product)iterator.next();
+            saleAmount+= getProTotalAmountByGivenList(product.getId(), dayRecord)*getProPriceById(product.getId());
+        }
+        return saleAmount;
+    }
+
+
+        public static String getClerkNameById(int clerkId){
         String name="";
         Clerk temp;
         Iterator iterator=clerkList.iterator();
