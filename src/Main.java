@@ -52,13 +52,10 @@ public class Main {
 //        SaleSystem saleSystem=new SaleSystem();
 //        saleSystem.reportProducer.generateReport(11);
 
-        data.SerialToFile(proInfoList);
-        data.SerialToFile(clerkList);
-        data.SerialToFile(receiptCatalog);
-        data.SerialToFile(productList);
-        data.SerialFromClerkList();
-        data.SerialFromProductList();
-        data.SerialFromProductInfoList();
-        data.SerialFromReceiptCatalog();
+//
+        DataTransition da = new DataTransition();
+        AccountList a = da.generateAccountList();
+        da.SerialToFile(a);
+        da.SerialFromAccountList();
     }
 }

@@ -199,7 +199,4 @@ public class Transition {
         }
         return name;
     }
-
-
-
 }

@@ -26,12 +26,12 @@ public class SaleSystem {
         reportProducer=new ReportProducer();
         percentageCounter=new PercentageCounter();
         totalSaleCalculator=new TotalSaleCalculator();
-        account=new Account(userName);
+        //account=new Account(userName);
     }
 
     public static void SaveData(){
         try {
-            Transition.dataTransition.SerialToFile(Transition.productInfoList, Transition.catalog, Transition.clerkList, Transition.productList);
+            ///Transition.dataTransition.SerialToFile(Transition.productInfoList, Transition.catalog, Transition.clerkList, Transition.productList);
             System.out.println("saved to DB");
         }catch (Exception e){
             System.out.print("save data error");

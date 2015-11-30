@@ -3,7 +3,7 @@
  */
 
 import java.io.*;
-import java.util.Iterator;
+
 
 public class DataTransition{
 
@@ -152,6 +152,36 @@ public class DataTransition{
         return catalog;
     }
 
+    public AccountList generateAccountList(){
+
+        File file = new File(DataTransition.class.getResource("/TXT/AccountDB.txt").getFile());
+        BufferedReader reader = null;
+        AccountList al = new AccountList();
+        String tempString;
+        String[] data;
+
+        try {
+            reader = new BufferedReader(new FileReader(file));
+
+            while ((tempString = reader.readLine()) != null) {
+                data = tempString.split(",");
+                Account  account = new Account(data[0],data[1],  Integer.parseInt(data[2]), data[3], Integer.parseInt(data[4]));
+                al.add(account);
+            }
+            reader.close();
+        }catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e1) {
+                }
+            }
+        }
+        return al;
+    }
+
     public SaleLineList  generateSaleLineList(ProductInfoList productInfoList){
         SaleLineList list = new SaleLineList();
         ProductInformation proInfo;
@@ -198,11 +228,18 @@ public class DataTransition{
         oout.writeObject(productList);
         oout.close();
     }
-    public  void SerialToFile(ProductInfoList productInfoList, ReceiptCatalog receiptCatalog, ClerkList clerkList, ProductList productList) throws Exception {
+    public  void SerialToFile(AccountList accountList) throws Exception{
+        File file = new File("accountList.obj");
+        ObjectOutputStream oout = new ObjectOutputStream(new FileOutputStream(file));
+        oout.writeObject(accountList);
+        oout.close();
+    }
+    public  void SerialToFile(ProductInfoList productInfoList, ReceiptCatalog receiptCatalog, ClerkList clerkList, ProductList productList, AccountList accountList) throws Exception {
         SerialToFile(productInfoList);
         SerialToFile(receiptCatalog);
         SerialToFile(productList);
         SerialToFile(clerkList);
+        SerialToFile(accountList);
     }
     public  ProductInfoList SerialFromProductInfoList() throws Exception {
         ObjectInputStream oin = new ObjectInputStream(new FileInputStream("productInfoList.obj"));
@@ -228,5 +265,11 @@ public class DataTransition{
         ProductList productList = (ProductList)oin.readObject();
         oin.close();
         return productList;
+    }
+    public  AccountList SerialFromAccountList() throws Exception {
+        ObjectInputStream oin = new ObjectInputStream(new FileInputStream("accountList.obj"));
+        AccountList accountList = (AccountList)oin.readObject();
+        oin.close();
+        return accountList;
     }
 }
