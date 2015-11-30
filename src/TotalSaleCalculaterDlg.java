@@ -50,7 +50,7 @@ public class TotalSaleCalculaterDlg extends JDialog {
         Dimension screensize=Toolkit.getDefaultToolkit().getScreenSize();
         int Swing1x= 600;
         int Swing1y = 400;
-        this.setBounds(screensize.width / 2 - Swing1x/2,screensize.height/2-Swing1y/2,Swing1x,Swing1y);
+        this.setBounds(screensize.width / 2 - Swing1x / 2, screensize.height / 2 - Swing1y / 2, Swing1x, Swing1y);
     }
 
     private void onOK() {

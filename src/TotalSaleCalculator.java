@@ -1,7 +1,7 @@
 /**
  * Created by chenhao on 11/13/15.
  */
-public class TotalSaleCalculator extends Transition {
+    public class TotalSaleCalculator extends Transition {
 
     public TotalSaleCalculator(ReceiptCatalog rc, ClerkList clerkList, ProductList productList) {
         super(rc, clerkList, productList);
