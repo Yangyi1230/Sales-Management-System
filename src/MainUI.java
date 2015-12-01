@@ -54,36 +54,15 @@ public class MainUI extends JDialog {
         int Swing1y=300;
         this.setBounds(screensize.width/2-Swing1x/2,screensize.height/2-Swing1y/2,Swing1x,Swing1y);
 
-        inputButton.addActionListener (new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onInput();
-            }
-        });
-        percentageCountButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onPercentageCount();
-            }
-        });
-        totalSaleCalculaterButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onTotalSaleCalculater();
-            }
-        });
-        royaltyGeneratorButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onRoyaltyGenerator();
-            }
-        });
-        reportProducerButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onReportProducer();
-            }
-        });
+        inputButton.addActionListener ((event)->onInput());
+
+        percentageCountButton.addActionListener((event)->onPercentageCount());
+
+        totalSaleCalculaterButton.addActionListener((event)->onTotalSaleCalculater());
+
+        royaltyGeneratorButton.addActionListener((event)->onRoyaltyGenerator());
+
+        reportProducerButton.addActionListener((event)->onReportProducer());
     }
 
     public void onInput() {
@@ -128,11 +107,5 @@ public class MainUI extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
-        SaleSystem saleSystem = new SaleSystem("Tom");
-        MainUI dialog = new MainUI(saleSystem);
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
-    }
+
 }

@@ -5,6 +5,7 @@
 import java.io.*;
 
 
+//处理底层数据库文件生成 clerkList, productList, productInfoList,accountList
 public class DataTransition{
 
 //    public void initialization(String OldRecord, ProductInfoList productInfoList, String ClerkInfoDB, ClerkList clerkList,
@@ -228,7 +229,7 @@ public class DataTransition{
         oout.writeObject(productList);
         oout.close();
     }
-    public  void SerialToFile(AccountList accountList) throws Exception{
+    public static void SerialToFile(AccountList accountList) throws Exception{
         File file = new File("accountList.obj");
         ObjectOutputStream oout = new ObjectOutputStream(new FileOutputStream(file));
         oout.writeObject(accountList);
@@ -266,7 +267,7 @@ public class DataTransition{
         oin.close();
         return productList;
     }
-    public  AccountList SerialFromAccountList() throws Exception {
+    public static AccountList SerialFromAccountList() throws Exception {
         ObjectInputStream oin = new ObjectInputStream(new FileInputStream("accountList.obj"));
         AccountList accountList = (AccountList)oin.readObject();
         oin.close();

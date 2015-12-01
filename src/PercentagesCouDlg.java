@@ -70,10 +70,5 @@ public class PercentagesCouDlg extends JDialog {
         dispose();
     }
 
-    public void main(String[] args) {
-        PercentagesCouDlg dialog = new PercentagesCouDlg(saleSystem);
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
-    }
+
 }

@@ -68,10 +68,5 @@ public class TotalSaleCalculaterDlg extends JDialog {
         dispose();
     }
 
-    public void main(String[] args) {
-        TotalSaleCalculaterDlg dialog = new TotalSaleCalculaterDlg(saleSystem);
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
-    }
+
 }

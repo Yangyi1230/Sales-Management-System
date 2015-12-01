@@ -4,16 +4,18 @@
 
 public class SaleSystem {
 
+
     public MonthSaleCalculator monthSaleCalculator;
     public InformationInput informationInput;
     public ReportProducer reportProducer;
     public PercentageCounter percentageCounter;
     public TotalSaleCalculator totalSaleCalculator;
     public Account account;
-    public SaleSystem(String userName) {
+    public SaleSystem(Account account) {
         String or =new String("/TXT/OldRecord.txt") ;
         String ci =new String("/TXT/ClerkInfoDB.txt") ;
         String pid=new String("/TXT/ProductInfoDB.txt");
+
         try {
 
             Transition.initial(pid, ci, or);
@@ -26,6 +28,7 @@ public class SaleSystem {
         reportProducer=new ReportProducer();
         percentageCounter=new PercentageCounter();
         totalSaleCalculator=new TotalSaleCalculator();
+        this.account=account;
         //account=new Account(userName);
     }
 

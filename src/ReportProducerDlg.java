@@ -259,10 +259,5 @@ public class ReportProducerDlg extends JDialog {
         dispose();
     }
 
-    public void main(String[] args) {
-        ReportProducerDlg dialog = new ReportProducerDlg(saleSystem);
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
-    }
+
 }

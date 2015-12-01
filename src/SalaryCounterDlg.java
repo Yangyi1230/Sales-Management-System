@@ -52,10 +52,5 @@ public class SalaryCounterDlg extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
-        SalaryCounterDlg dialog = new SalaryCounterDlg();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
-    }
+
 }
