@@ -210,8 +210,7 @@ public class ReportProducerDlg extends JDialog {
 
         TablePanel.setLayout(new BoxLayout(TablePanel,BoxLayout.Y_AXIS));
         TablePanel.add(scroll);
-        //scroll.setSize(700, 400);
-        //TablePanel.add(scroll);
+
 
         TablePanel.revalidate();
 

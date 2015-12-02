@@ -11,6 +11,7 @@ public class SaleSystem {
     public PercentageCounter percentageCounter;
     public TotalSaleCalculator totalSaleCalculator;
     public Account account;
+    public SalaryCheck salaryCheck;
     public SaleSystem(Account account) {
         String or =new String("/TXT/OldRecord.txt") ;
         String ci =new String("/TXT/ClerkInfoDB.txt") ;
@@ -28,6 +29,8 @@ public class SaleSystem {
         reportProducer=new ReportProducer();
         percentageCounter=new PercentageCounter();
         totalSaleCalculator=new TotalSaleCalculator();
+        salaryCheck=new SalaryCheck();
+
         this.account=account;
         //account=new Account(userName);
     }

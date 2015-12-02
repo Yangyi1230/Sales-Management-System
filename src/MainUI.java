@@ -42,17 +42,7 @@ public class MainUI extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
 
-        monthSaleCalulaterButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onMonthCal();
-            }
-        });
-
-        Dimension screensize=Toolkit.getDefaultToolkit().getScreenSize();
-        int Swing1x=500;
-        int Swing1y=300;
-        this.setBounds(screensize.width/2-Swing1x/2,screensize.height/2-Swing1y/2,Swing1x,Swing1y);
+        monthSaleCalulaterButton.addActionListener((event)->onMonthCal());
 
         inputButton.addActionListener ((event)->onInput());
 
@@ -63,6 +53,11 @@ public class MainUI extends JDialog {
         royaltyGeneratorButton.addActionListener((event)->onRoyaltyGenerator());
 
         reportProducerButton.addActionListener((event)->onReportProducer());
+
+        Dimension screensize=Toolkit.getDefaultToolkit().getScreenSize();
+        int Swing1x=500;
+        int Swing1y=300;
+        this.setBounds(screensize.width/2-Swing1x/2,screensize.height/2-Swing1y/2,Swing1x,Swing1y);
     }
 
     public void onInput() {
@@ -81,9 +76,9 @@ public class MainUI extends JDialog {
         dialog.setVisible(true);
     }
     public void onRoyaltyGenerator() {
-        SalaryCounterDlg dialog = new SalaryCounterDlg();
-        dialog.pack();
-        dialog.setVisible(true);
+        SalaryCheckDlg salaryCheckDlg = new SalaryCheckDlg(saleSystem);
+        salaryCheckDlg.pack();
+        salaryCheckDlg.setVisible(true);
     }
     public void onReportProducer() {
         ReportProducerDlg dialog = new ReportProducerDlg(saleSystem);
@@ -97,10 +92,8 @@ public class MainUI extends JDialog {
         monthCalDlg.setVisible(true);
     }
 
-//    private void onOK() {
-//// add your code here
-//        dispose();
-//    }
+
+
 
     private void onCancel() {
 // add your code here if necessary

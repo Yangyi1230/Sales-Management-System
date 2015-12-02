@@ -35,6 +35,7 @@ public class Transition {
         productInfoList=dataTransition.SerialFromProductInfoList();
         productList=dataTransition.SerialFromProductList();
         catalog=dataTransition.generateReceiptCatalog(productInfoList);
+
     }
 
 

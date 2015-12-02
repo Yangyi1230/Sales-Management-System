@@ -60,6 +60,7 @@ public class ReportProducer extends Transition {
 
 
     //生成按月份查找的表格内容
+
     Object [][] monthRowDataProducer(int month){
 
         Object rowData[][]=new Object[Transition.clerkList.size()+1][Transition.productList.size()+2];

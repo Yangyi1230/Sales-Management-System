@@ -55,8 +55,7 @@ public class LoginScreen extends JDialog {
     }
 
     private void onLogin() {
-// add your code here
-        //dispose();
+
         loginControl.loginPressed();
     }
 
