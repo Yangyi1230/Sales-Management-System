@@ -11,7 +11,12 @@ public class SaleLineItem {
         this.product = product;
         count = amount;
     }
-
+    public String getName(){
+        return product.proName;
+    }
+    public int getID(){
+        return  product.getId();
+    }
     public int getCount() {
         return count;
     }

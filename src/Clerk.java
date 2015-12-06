@@ -7,6 +7,7 @@ import java.io.Serializable;
 public class Clerk implements Serializable {
     int id;
     String name;
+    int salary = 3000;
 
     public void setId(int id){
         this.id = id;
@@ -47,5 +48,13 @@ public class Clerk implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public int getSalary() {
+        return salary;
     }
 }

@@ -5,6 +5,15 @@
 public class Main {
     public static void main(String[] args) {
 
+        //test part
+       // DataTransition data = new DataTransition();
+       // ProductInfoList prolist = data.generateProListFromFile(Main.class.getResource("TXT/OldRecord.txt").getFile());
+       // MidList list = data.generateMidList(prolist);
+
+
+
+
+
 
 
         AccountList accountList =null;

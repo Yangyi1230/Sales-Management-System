@@ -57,7 +57,7 @@ public class DataTransition{
 
             while ((tempString = reader.readLine()) != null) {
                 data = tempString.split(",");
-                Product product = new Product(Integer.parseInt(data[0]), Integer.parseInt(data[1]));
+                Product product = new Product(Integer.parseInt(data[0]), Integer.parseInt(data[1]), Integer.parseInt(data[2]), data[3]);
                 productList.add(product);
             }
             reader.close();
@@ -152,6 +152,38 @@ public class DataTransition{
         }
         return catalog;
     }
+
+
+    public MidList generateMidList(ProductInfoList productInfoList){
+        ProductInformation proInfo;
+        MidList list = new MidList();
+        boolean isFind;
+
+        for(int i = 0; i < productInfoList.size(); i++){
+            proInfo = productInfoList.get(i);
+            isFind = false;
+            for(int j = 0; j< list.size(); j++){
+                RNode node = list.get(j);
+                if(node.clerk.getId() == proInfo.clerk.getId()&&
+                        node.date.getMonth() == proInfo.date.getMonth()&&
+                        node.date.getDate() == proInfo.date.getDate()){
+                    SaleLineItem item =new SaleLineItem(proInfo.product, proInfo.amount);
+                    node.saleList.add(item);
+                    isFind = true;
+                    break;
+                }
+            }
+            if(!isFind){
+                SaleLineItem item = new SaleLineItem(proInfo.product, proInfo.amount);
+                SaleLineList salelist = new SaleLineList();
+                salelist.add(item);
+                RNode node = new RNode(proInfo.clerk, proInfo.date, salelist);
+                list.add(node);
+            }
+        }
+        return list;
+    }
+
 
     public AccountList generateAccountList(){
 
