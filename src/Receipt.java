@@ -1,147 +1,62 @@
+import java.util.Iterator;
 import java.io.Serializable;
-
 /**
- * Created by chenhao on 11/13/15.
+ * Created by ?? on 2015/11/22.
  */
-
 public class Receipt implements Serializable {
     Clerk clerk;
     Date date;
-    int towelAmount; // 3
-    int pillowAmount;// 1
-    int curtainAmount;// 2
-    int bathmatAmount;// 4
-    int quiltAmount;// 5
-    int sheetAmount;
-
-    public int getSheetAmount() {
-        return sheetAmount;
-    }
-
-    public void setSheetAmount(int sheetAmount) {
-        this.sheetAmount = sheetAmount;
-    }
+   SaleLineList saleList;
 
     Receipt(){
         clerk = new Clerk();
         date = new Date();
-        towelAmount = 0;
-        pillowAmount = 0;
-        curtainAmount = 0;
-        bathmatAmount = 0;
-        quiltAmount = 0;
-        sheetAmount=0;
+        saleList = new SaleLineList();
+    }
+    Receipt(Clerk c, Date d, SaleLineList s){
+        this.saleList = s;
+        this.clerk = c;
+        this.date = d;
+    }
+
+    public int getAmount(String name) {
+        Iterator iter= saleList.iterator();
+        int amount = 0;
+        while(iter.hasNext()){
+            SaleLineItem item = (SaleLineItem) iter.next();
+            if(item.getName().equals(name)){
+                amount =  item.getCount();
+            }
+        }
+        return amount;
+    }
+
+    public int getAmount(int id){
+        Iterator iter = saleList.iterator();
+        int amount = 0;
+        while(iter.hasNext()){
+            SaleLineItem item = (SaleLineItem) iter.next();
+            if(item.getID() == id){
+                amount = item.getCount();
+            }
+        }
+        return amount;
     }
 
     public Receipt(Clerk clerk, Date date) {
         this.clerk = clerk;
         this.date = date;
-        towelAmount = 0;
-        pillowAmount = 0;
-        curtainAmount = 0;
-        bathmatAmount = 0;
-        quiltAmount = 0;
-        sheetAmount=0;
     }
 
-    public void setAmountById(int proId, int amount){
-        switch(proId){
-            case 1:
-                pillowAmount = amount;
-                break;
-            case 2:
-                curtainAmount = amount;
-                break;
-            case 3:
-                towelAmount = amount;
-                break;
-            case 4:
-                bathmatAmount = amount;
-                break;
-            case 5:
-                quiltAmount =amount;
-                break;
-            case 6:
-                sheetAmount=amount;
-        }
-    }
-
-
-//    get single product amount by product ID
-    public int getAmountById(int proId){
-        int amount=0;
-
-        switch(proId){
-            case 1:
-                amount=getPillowAmount();
-                break;
-            case 2:
-                amount=getCurtainAmount();
-                break;
-            case 3:
-                amount=getTowelAmount();
-                break;
-            case 4:
-                amount=getBathmatAmount();
-                break;
-            case 5:
-                amount=getQuiltAmount();
-                break;
-            case 6:
-                amount=getSheetAmount();
-        }
-
-//        System.out.println("getAmountById result: "+amount);
-
-        return amount;
-    }
-
-//    need change ...
+    //    need change ...
     public int getTotalProAmountPerReceipt(){
         int total=0;
-        total+=getBathmatAmount()+getCurtainAmount()+getPillowAmount()+getQuiltAmount()+getTowelAmount()+getSheetAmount();
+       Iterator iter = saleList.iterator();
+        while(iter.hasNext()){
+            SaleLineItem item = (SaleLineItem) iter.next();
+            total+=item.getCount();
+        }
         return total;
     }
-
-    public int getBathmatAmount() {
-        return bathmatAmount;
-    }
-
-    public int getCurtainAmount() {
-        return curtainAmount;
-    }
-
-    public int getPillowAmount() {
-        return pillowAmount;
-    }
-
-    public int getQuiltAmount() {
-        return quiltAmount;
-    }
-
-    public int getTowelAmount() {
-        return towelAmount;
-    }
-
-    public void setBathmatAmount(int bathmatAmount) {
-        this.bathmatAmount = bathmatAmount;
-    }
-
-    public void setCurtainAmount(int curtainAmount) {
-        this.curtainAmount = curtainAmount;
-    }
-
-    public void setPillowAmount(int pillowAmount) {
-        this.pillowAmount = pillowAmount;
-    }
-
-    public void setQuiltAmount(int quiltAmount) {
-        this.quiltAmount = quiltAmount;
-    }
-
-    public void setTowelAmount(int towelAmount) {
-        this.towelAmount = towelAmount;
-    }
-
-
 }
+

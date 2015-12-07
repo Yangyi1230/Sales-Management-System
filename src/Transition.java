@@ -92,7 +92,7 @@ public class Transition {
         Iterator iter=rc.iterator();
         while(iter.hasNext()){
             Receipt r=(Receipt)iter.next();
-            amount+=r.getAmountById(proId);
+            amount+=r.getAmount(proId);
         }
 
 //        System.out.println("getProTotalAmountByGivenList result: " + amount );
@@ -107,7 +107,7 @@ public class Transition {
         while(iterator.hasNext()){
             Receipt r=(Receipt)iterator.next();
             if(r.date.getMonth()==month){
-                amount+=r.getAmountById(proId);
+                amount+=r.getAmount(proId);
             }
         }
         return amount;
@@ -119,7 +119,7 @@ public class Transition {
         while(iterator.hasNext()){
             Receipt r=(Receipt)iterator.next();
             if(r.date.getMonth()==month&&r.date.getDate()==day){
-                amount+=r.getAmountById(proId);
+                amount+=r.getAmount(proId);
             }
         }
         return amount;

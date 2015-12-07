@@ -8,7 +8,7 @@ public class Clerk implements Serializable {
     int id;
     String name;
     int salary = 3000;
-
+    private static final long serialVersionUID =255320182475819425L;
     public void setId(int id){
         this.id = id;
         switch (id){
@@ -22,7 +22,10 @@ public class Clerk implements Serializable {
                 name = "Peter";
                 break;
             case 4:
-                name = "Ann";
+                name = "Ann1";
+                break;
+            case 5:
+                name = "Ann2";
                 break;
             default:
                 name ="";

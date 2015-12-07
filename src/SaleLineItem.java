@@ -1,7 +1,9 @@
+import java.io.Serializable;
+
 /**
  * Created by chenhao on 11/13/15.
  */
-public class SaleLineItem {
+public class SaleLineItem implements Serializable{
 
     Product product;
 

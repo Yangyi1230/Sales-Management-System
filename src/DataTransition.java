@@ -114,7 +114,7 @@ public class DataTransition{
         return proInfoList;
     }
 
-    public ReceiptCatalog generateReceiptCatalog(ProductInfoList productInfoList){
+ /*   public ReceiptCatalog generateReceiptCatalog(ProductInfoList productInfoList){
         ReceiptCatalog catalog = new ReceiptCatalog();
         ProductInformation proInfo;
         MidList list = new MidList();
@@ -152,18 +152,18 @@ public class DataTransition{
         }
         return catalog;
     }
+*/
 
-
-    public MidList generateMidList(ProductInfoList productInfoList){
+    public ReceiptCatalog generateReceiptCatalog(ProductInfoList productInfoList){
         ProductInformation proInfo;
-        MidList list = new MidList();
+        ReceiptCatalog list = new ReceiptCatalog();
         boolean isFind;
 
         for(int i = 0; i < productInfoList.size(); i++){
             proInfo = productInfoList.get(i);
             isFind = false;
             for(int j = 0; j< list.size(); j++){
-                RNode node = list.get(j);
+                Receipt node = list.get(j);
                 if(node.clerk.getId() == proInfo.clerk.getId()&&
                         node.date.getMonth() == proInfo.date.getMonth()&&
                         node.date.getDate() == proInfo.date.getDate()){
@@ -177,7 +177,7 @@ public class DataTransition{
                 SaleLineItem item = new SaleLineItem(proInfo.product, proInfo.amount);
                 SaleLineList salelist = new SaleLineList();
                 salelist.add(item);
-                RNode node = new RNode(proInfo.clerk, proInfo.date, salelist);
+                Receipt node = new Receipt(proInfo.clerk, proInfo.date, salelist);
                 list.add(node);
             }
         }
@@ -243,7 +243,7 @@ public class DataTransition{
         oout.close();
 
     }
-    public  void SerialToFile( ReceiptCatalog receiptCatalog) throws Exception{
+   public  void SerialToFile( ReceiptCatalog receiptCatalog) throws Exception{
         File file = new File("receiptCatalog.obj");
         ObjectOutputStream oout = new ObjectOutputStream(new FileOutputStream(file));
         oout.writeObject(receiptCatalog);
@@ -299,7 +299,7 @@ public class DataTransition{
         oin.close();
         return productList;
     }
-    public static AccountList SerialFromAccountList() throws Exception {
+    public AccountList SerialFromAccountList() throws Exception {
         ObjectInputStream oin = new ObjectInputStream(new FileInputStream("accountList.obj"));
         AccountList accountList = (AccountList)oin.readObject();
         oin.close();
