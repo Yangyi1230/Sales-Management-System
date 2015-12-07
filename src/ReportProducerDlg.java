@@ -134,7 +134,7 @@ public class ReportProducerDlg extends JDialog {
         int dayMonth=(int) dayMonthSpinner.getValue();
         int quater=(int) quarterSpinner.getValue();
 
-        String[] columnNames={"员工","pillow","curtain","towel","bathmat","quilt","总销售额"};
+        String[] columnNames={"员工","pillow","curtain","towel","bathmat","quilt","sheet","总销售额"};
 
         Object rowData[][]=null;
 
