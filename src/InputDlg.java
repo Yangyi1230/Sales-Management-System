@@ -21,6 +21,7 @@ public class InputDlg extends JDialog {
         month.setText("");
         day.setText("");
         productID.setText("");
+
         amount.setText("");
 
         setContentPane(contentPane);
