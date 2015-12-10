@@ -70,15 +70,20 @@ public class InputDlg extends JDialog {
 
         } else {
 
-            saleSystem.informationInput.input(Integer.parseInt(clerkID.getText()), Integer.parseInt(month.getText()), Integer.parseInt(day.getText()), Integer.parseInt(productID.getText()), Integer.parseInt(amount.getText()));
-            saleSystem.SaveData();
+            if (productID.getText().equals("1")) {
+                JOptionPane.showMessageDialog(null, "Pillow 暂时缺货", "", JOptionPane.ERROR_MESSAGE);
+            } else {
 
+                saleSystem.informationInput.input(Integer.parseInt(clerkID.getText()), Integer.parseInt(month.getText()), Integer.parseInt(day.getText()), Integer.parseInt(productID.getText()), Integer.parseInt(amount.getText()));
+                saleSystem.SaveData();
+                JOptionPane.showMessageDialog(null, "录入成功", "", JOptionPane.PLAIN_MESSAGE);
+
+            }
             clerkID.setText("");
             month.setText("");
             day.setText("");
             productID.setText("");
             amount.setText("");
-            JOptionPane.showMessageDialog(null, "录入成功", "", JOptionPane.PLAIN_MESSAGE);
 
         }
     }

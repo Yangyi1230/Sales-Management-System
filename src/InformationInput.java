@@ -13,6 +13,8 @@ public class InformationInput extends Transition {
     }
 
     void input(int clerkId, int month,int day, int proId, int proAmount){
+
+
         ProductInformation productInformation=new ProductInformation();
         Clerk clerk=new Clerk();
         clerk.setId(clerkId);
