@@ -1,32 +1,30 @@
-import sun.awt.resources.awt;
-
 import javax.swing.*;
 import java.awt.*;
 
 /**
  * Created by chenhao on 12/1/15.
  */
-public class LoginControl {
+public class LoginController {
 
     AccountList accountList;
-    LoginScreen loginScreen;
+    LoginScreenView loginScreenView;
 
-    public LoginControl() {
+    public LoginController() {
     }
 
-    public LoginControl(AccountList accountList, LoginScreen loginScreen) {
+    public LoginController(AccountList accountList, LoginScreenView loginScreenView) {
         this.accountList = accountList;
-        this.loginScreen = loginScreen;
+        this.loginScreenView = loginScreenView;
     }
 
     public void loginPressed() {
 
         for (Account account : accountList) {
-            if (account.getUserName().equals(loginScreen.accountField.getText()) && account.getPassword().equals(loginScreen.passwordField.getText())) {
+            if (account.getUserName().equals(loginScreenView.accountField.getText()) && account.getPassword().equals(loginScreenView.passwordField.getText())) {
                 SaleSystem saleSystem = new SaleSystem(account);
 
                 JOptionPane.showMessageDialog(null, "Welcome: " + account.getClerkName() + " !", "", JOptionPane.PLAIN_MESSAGE);
-                loginScreen.setVisible(false);
+                loginScreenView.setVisible(false);
                 MainUI dialog = new MainUI(saleSystem);
 
                 EventQueue.invokeLater(() -> {

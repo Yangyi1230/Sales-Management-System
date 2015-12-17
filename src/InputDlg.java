@@ -94,10 +94,5 @@ public class InputDlg extends JDialog {
         dispose();
     }
 
-    public void main(String[] args) {
-        InputDlg dialog = new InputDlg(saleSystem);
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
-    }
+
 }

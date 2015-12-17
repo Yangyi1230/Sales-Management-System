@@ -60,51 +60,49 @@ public class ReportProducer extends Transition {
 
 
     //生成按月份查找的表格内容
-
     Object [][] monthRowDataProducer(int month){
 
-        Object rowData[][]=new Object[Transition.clerkList.size()+1][Transition.productList.size()+2];
+    Object rowData[][]=new Object[Transition.clerkList.size()+1][Transition.productList.size()+2];
 
-        int i=0;
-        int j=0;
+    int i=0;
+    int j=0;
 
-        Iterator clerkIterator=Transition.clerkList.iterator();
-        while(clerkIterator.hasNext()){
-            Clerk clerk=(Clerk)clerkIterator.next();
-
-
-            rowData[i][j++]=clerk.getName();
-
-            ReceiptCatalog monthCatalog=Transition.getClerkMonthRecord(month, clerk.getName());
-
-            int tempSaleAmount=0;
+    Iterator clerkIterator=Transition.clerkList.iterator();
+    while(clerkIterator.hasNext()){
+        Clerk clerk=(Clerk)clerkIterator.next();
 
 
-            for(Product product:Transition.productList){
-                tempSaleAmount= Transition.getProTotalAmountByGivenList(product.getId(), monthCatalog)*Transition.getProPriceById(product.getId());
-                rowData[i][j++]= tempSaleAmount;
-            }
+        rowData[i][j++]=clerk.getName();
 
-            rowData[i][j]=Transition.getClerkTotalSaleAmountPerMonth(month, clerk.getName());
+        ReceiptCatalog monthCatalog=Transition.getClerkMonthRecord(month, clerk.getName());
+
+        int tempSaleAmount=0;
 
 
-            j=0;
-            i++;
-
+        for(Product product:Transition.productList){
+            tempSaleAmount= Transition.getProTotalAmountByGivenList(product.getId(), monthCatalog)*Transition.getProPriceById(product.getId());
+            rowData[i][j++]= tempSaleAmount;
         }
 
-        int x=0;
-        rowData[i][x++]="商品总销量";
-        Iterator iterator1=Transition.productList.iterator();
-        int tempProAmount=0;
-        while(iterator1.hasNext()){
-            Product product=(Product)iterator1.next();
-            tempProAmount=Transition.getProMonthAmount(product.getId(), month, Transition.catalog);
-            rowData[i][x++]= tempProAmount;
-        }
-        return rowData;
+        rowData[i][j]=Transition.getClerkTotalSaleAmountPerMonth(month, clerk.getName());
+
+
+        j=0;
+        i++;
+
     }
 
+    int x=0;
+    rowData[i][x++]="商品总销量";
+    Iterator iterator1=Transition.productList.iterator();
+    int tempProAmount=0;
+    while(iterator1.hasNext()){
+        Product product=(Product)iterator1.next();
+        tempProAmount=Transition.getProMonthAmount(product.getId(), month, Transition.catalog);
+        rowData[i][x++]= tempProAmount;
+    }
+    return rowData;
+}
 
     //生成按天查找的表格内容
     Object [][] dayRowDataProducer(int month,int day) {
@@ -146,7 +144,7 @@ public class ReportProducer extends Transition {
         return rowData;
     }
 
-
+    //生成按季度查找的表格内容
     Object [][] quaterRowDataProducer(int quater) {
 
         Object rowData[][]=new Object[Transition.clerkList.size()+1][Transition.productList.size()+2];
@@ -194,6 +192,8 @@ public class ReportProducer extends Transition {
 
         return rowData;
     }
+
+
 
     }
 
