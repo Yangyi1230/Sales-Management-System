@@ -22,11 +22,9 @@ public class LoginController {
         for (Account account : accountList) {
             if (account.getUserName().equals(loginScreenView.accountField.getText()) && account.getPassword().equals(loginScreenView.passwordField.getText())) {
                 SaleSystem saleSystem = new SaleSystem(account);
-
                 JOptionPane.showMessageDialog(null, "Welcome: " + account.getClerkName() + " !", "", JOptionPane.PLAIN_MESSAGE);
                 loginScreenView.setVisible(false);
                 MainUI dialog = new MainUI(saleSystem);
-
                 EventQueue.invokeLater(() -> {
                     dialog.pack();
                     dialog.setVisible(true);

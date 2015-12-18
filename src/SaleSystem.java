@@ -24,6 +24,7 @@ public class SaleSystem {
         }catch (Exception e){
             System.out.print("initial fail");
         }
+        
         monthSaleCalculator=new MonthSaleCalculator();
         informationInput =new InformationInput();
         reportProducer=new ReportProducer();
