@@ -45,11 +45,11 @@ public class DataTransition{
         return clerkList;
     }
 
-    public ProductList generateProductList(String fileName){
-        File file = new File(fileName);
+    public ProductList generateProductList(){
+        File file = new File(DataTransition.class.getResource("/TXT/ProductInfoDB.txt").getFile());
         BufferedReader reader = null;
 
-        ProductList productList=new ProductList();
+        ProductList productList = new ProductList();
         try {
             reader = new BufferedReader(new FileReader(file));
             String tempString;
@@ -74,9 +74,9 @@ public class DataTransition{
         return productList;
     }
 
-    public ProductInfoList generateProListFromFile(String fileName){
-
-        File file = new File(fileName);
+    public ProductInfoList generateProListFromFile(){
+        File file = new File(DataTransition.class.getResource("/TXT/OldRecord.txt").getFile());
+        //File file = new File(fileName);
         BufferedReader reader = null;
         ProductInfoList proInfoList = new ProductInfoList();
         try {
@@ -273,6 +273,12 @@ public class DataTransition{
         SerialToFile(productList);
         SerialToFile(clerkList);
         SerialToFile(accountList);
+    }
+    public  void SerialToFile(ProductInfoList productInfoList, ReceiptCatalog receiptCatalog, ClerkList clerkList, ProductList productList) throws Exception {
+        SerialToFile(productInfoList);
+        SerialToFile(receiptCatalog);
+        SerialToFile(productList);
+        SerialToFile(clerkList);
     }
     public  ProductInfoList SerialFromProductInfoList() throws Exception {
         ObjectInputStream oin = new ObjectInputStream(new FileInputStream("productInfoList.obj"));

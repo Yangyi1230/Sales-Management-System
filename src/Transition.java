@@ -200,9 +200,12 @@ public class Transition {
                 id = p.getId();
                 break;
             }
-
         }
         return id;
+    }
+
+    public static int  getNextProductId(){
+        return productList.size() + 1;
     }
 
     public static void calculateStoreAmount(int proId, int sellAmount) throws Exception {

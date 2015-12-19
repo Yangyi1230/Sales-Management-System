@@ -11,6 +11,7 @@ public class MainUI extends JDialog {
     private JButton totalSaleCalculaterButton;
     private JButton royaltyGeneratorButton;
     private JButton reportProducerButton;
+    private JButton addButton;
     private JButton buttonOK;
     private JButton buttonCancel;
     public static SaleSystem saleSystem;
@@ -54,6 +55,8 @@ public class MainUI extends JDialog {
 
         reportProducerButton.addActionListener((event)->onReportProducer());
 
+        addButton.addActionListener((event)->onAdd());
+
         Dimension screensize=Toolkit.getDefaultToolkit().getScreenSize();
         int Swing1x=500;
         int Swing1y=300;
@@ -92,7 +95,11 @@ public class MainUI extends JDialog {
         monthCalDlg.setVisible(true);
     }
 
-
+    public void onAdd() {
+        AddDLg dialog = new AddDLg(saleSystem);
+        dialog.pack();
+        dialog.setVisible(true);
+    }
 
 
     private void onCancel() {
@@ -101,4 +108,7 @@ public class MainUI extends JDialog {
     }
 
 
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }

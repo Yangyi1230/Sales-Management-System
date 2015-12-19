@@ -10,6 +10,7 @@ public class SaleSystem {
     public ReportProducer reportProducer;
     public PercentageCounter percentageCounter;
     public TotalSaleCalculator totalSaleCalculator;
+    public AddNewProduct addNewProduct;
     public Account account;
     public SalaryCheck salaryCheck;
     public SaleSystem(Account account) {
@@ -31,6 +32,7 @@ public class SaleSystem {
         percentageCounter=new PercentageCounter();
         totalSaleCalculator=new TotalSaleCalculator();
         salaryCheck=new SalaryCheck();
+        addNewProduct = new AddNewProduct();
 
         this.account=account;
         //account=new Account(userName);
@@ -38,7 +40,7 @@ public class SaleSystem {
 
     public static void SaveData(){
         try {
-            ///Transition.dataTransition.SerialToFile(Transition.productInfoList, Transition.catalog, Transition.clerkList, Transition.productList);
+            Transition.dataTransition.SerialToFile(Transition.productInfoList, Transition.catalog, Transition.clerkList, Transition.productList);
             System.out.println("saved to DB");
         }catch (Exception e){
             System.out.print("save data error");

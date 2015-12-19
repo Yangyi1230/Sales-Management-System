@@ -23,7 +23,7 @@ public class SalaryCheck extends Transition {
         return  bonus+basicSalary;
 
     }
-
+//计算所有员工各月工资
     Object [][] salaryRowDataProduce(int month){
         Object rowData[][]=new Object[Transition.clerkList.size()][2];
 

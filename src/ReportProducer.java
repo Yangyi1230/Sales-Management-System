@@ -92,17 +92,18 @@ public class ReportProducer extends Transition {
 
     }
 
-    int x=0;
-    rowData[i][x++]="商品总销量";
-    Iterator iterator1=Transition.productList.iterator();
-    int tempProAmount=0;
-    while(iterator1.hasNext()){
-        Product product=(Product)iterator1.next();
-        tempProAmount=Transition.getProMonthAmount(product.getId(), month, Transition.catalog);
-        rowData[i][x++]= tempProAmount;
+        int x=0;
+        rowData[i][x++]="商品总销量";
+        Iterator iterator1=Transition.productList.iterator();
+        int tempProAmount=0;
+        while(iterator1.hasNext()){
+            Product product=(Product)iterator1.next();
+            tempProAmount=Transition.getProMonthAmount(product.getId(), month, Transition.catalog);
+            rowData[i][x++]= tempProAmount;
+        }
+        return rowData;
     }
-    return rowData;
-}
+
 
     //生成按天查找的表格内容
     Object [][] dayRowDataProducer(int month,int day) {
@@ -192,8 +193,6 @@ public class ReportProducer extends Transition {
 
         return rowData;
     }
-
-
 
     }
 
