@@ -4,12 +4,12 @@
 
 public class Main {
     public static void main(String[] args) {
-       /* 更新obj文件时使用
-       DataTransition d = new DataTransition();
-        ProductInfoList pro = d.generateProListFromFile();
+       //更新obj文件时使用
+      /* DataTransition d = new DataTransition();
+       // ProductInfoList pro = d.generateProListFromFile();
         ProductList pl = d.generateProductList();
         try{
-            d.SerialToFile(pro);
+           // d.SerialToFile(pro);
             d.SerialToFile(pl);
         }catch(Exception e){
         }*/
