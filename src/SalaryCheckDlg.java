@@ -48,6 +48,7 @@ public class SalaryCheckDlg extends JDialog {
                 x = x + "f";
                 float tempSalary = Float.parseFloat(x);
                 int salary = Math.round(tempSalary);
+
                 //table.setValueAt(newValue, row, column);
                 JTable tempTable = tcl.getTable();
                 Object clerkObj = tempTable.getValueAt(row, column - 1);
