@@ -62,19 +62,16 @@ public class InputDlg extends JDialog {
 
 
     private void onOK() {
-// add your code here
-//        dispose();
         if (clerkName.getText().equals("") || month.getText().equals("") || day.getText().equals("") || productName.getText().equals("") || amount.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "必须将表单填满以完成输入", "", JOptionPane.ERROR_MESSAGE);
         } else {
             int productId;
             productId = Transition.getProductIdByName(productName.getText());
-
             if (productId != -1) {
                 try {
                     Transition.calculateStoreAmount(productId, Integer.parseInt(amount.getText()));
                     saleSystem.informationInput.input(saleSystem.account.getClerkID(), Integer.parseInt(month.getText()), Integer.parseInt(day.getText()), productId, Integer.parseInt(amount.getText()));
-                    saleSystem.SaveData();
+                    saleSystem.saveData();
                     JOptionPane.showMessageDialog(null, "录入成功", "", JOptionPane.PLAIN_MESSAGE);
 
                 } catch (Exception e) {
@@ -85,11 +82,8 @@ public class InputDlg extends JDialog {
                     productName.setText("");
                     amount.setText("");
                 }
-
-
             } else {
                 JOptionPane.showMessageDialog(null, "无相关商品", "", JOptionPane.ERROR_MESSAGE);
-
             }
         }
 

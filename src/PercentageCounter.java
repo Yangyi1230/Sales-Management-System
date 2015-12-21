@@ -46,7 +46,7 @@ public class PercentageCounter extends Transition {
             total+=getClerkTotalSaleAmountPerMonth(month, c.getName());
         }
 
-        int clerkTotal=0;
+        float clerkTotal=0;
 
         clerkTotal= getClerkTotalSaleAmountPerMonth(month, clerkName);
 

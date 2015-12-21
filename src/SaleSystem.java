@@ -38,7 +38,7 @@ public class SaleSystem {
         //account=new Account(userName);
     }
 
-    public static void SaveData(){
+    public static void saveData(){
         try {
             Transition.dataTransition.SerialToFile(Transition.productInfoList, Transition.catalog, Transition.clerkList, Transition.productList);
             System.out.println("saved to DB");

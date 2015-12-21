@@ -1,5 +1,3 @@
-import sun.security.x509.SubjectAlternativeNameExtension;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -65,7 +63,7 @@ public class AddDLg extends JDialog {
             int productID = Transition.getNextProductId();
             try {
                 saleSystem.addNewProduct.addProduct(productID, productName.getText(), Integer.parseInt(price.getText() ), Integer.parseInt(amount.getText()));
-                saleSystem.SaveData();
+                saleSystem.saveData();
                 JOptionPane.showMessageDialog(null, "录入成功", "", JOptionPane.PLAIN_MESSAGE);
             }catch(Exception e){
 

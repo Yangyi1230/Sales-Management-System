@@ -92,14 +92,14 @@ public class ReportProducer extends Transition {
 
     }
 
-        int x=0;
-        rowData[i][x++]="商品总销量";
-        Iterator iterator1=Transition.productList.iterator();
-        int tempProAmount=0;
-        while(iterator1.hasNext()){
-            Product product=(Product)iterator1.next();
-            tempProAmount=Transition.getProMonthAmount(product.getId(), month, Transition.catalog);
-            rowData[i][x++]= tempProAmount;
+        int x = 0;
+        rowData[i][x++] = "商品总销量";
+        Iterator iterator1 = Transition.productList.iterator();
+        int tempProAmount = 0;
+        while (iterator1.hasNext()) {
+            Product product = (Product) iterator1.next();
+            tempProAmount = Transition.getProMonthAmount(product.getId(), month, Transition.catalog);
+            rowData[i][x++] = tempProAmount;
         }
         return rowData;
     }
@@ -194,7 +194,16 @@ public class ReportProducer extends Transition {
         return rowData;
     }
 
+
+    public void generateColumnNames(ProductList productList, String[] columnNames) {
+        int i = 0;
+        columnNames[i++] = "员工";
+        for (Product p : productList) {
+            columnNames[i++] = p.proName;
+        }
+        columnNames[i] = "总销售额";
     }
+}
 
 
 

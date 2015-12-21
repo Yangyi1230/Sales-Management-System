@@ -5,13 +5,28 @@ import java.io.Serializable;
  */
 //
 public class Clerk implements Serializable {
+    private static final long serialVersionUID = 255320182475819425L;
     int id;
     String name;
     int salary = 3000;
-    private static final long serialVersionUID =255320182475819425L;
-    public void setId(int id){
+
+    public Clerk() {
+        this.id = 0;
+        this.name = "";
+    }
+
+    public Clerk(int id, String name) {
         this.id = id;
-        switch (id){
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+        switch (id) {
             case 1:
                 name = "Tom";
                 break;
@@ -28,21 +43,8 @@ public class Clerk implements Serializable {
                 name = "Ann2";
                 break;
             default:
-                name ="";
+                name = "";
         }
-    }
-
-    public Clerk() {
-        this.id = 0;
-        this.name = "";
-    }
-    public Clerk(int id,String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getName() {
@@ -53,11 +55,11 @@ public class Clerk implements Serializable {
         this.name = name;
     }
 
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
     public int getSalary() {
         return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 }

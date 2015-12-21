@@ -6,9 +6,10 @@ import java.util.Iterator;
 public class SalaryCheck extends Transition {
     int basicSalary;
     float bonusRate;
+
     public SalaryCheck() {
-        basicSalary=1000;
-        bonusRate=(float)0.01;
+        basicSalary = 1000;
+        bonusRate = (float) 0.01;
     }
 
 
@@ -17,33 +18,36 @@ public class SalaryCheck extends Transition {
         this.bonusRate = bonusRate;
     }
 
-    float salaryGenerate(int month, String clerkName){
+    float salaryGenerate(int month, String clerkName) {
 
-        float bonus= (float)( getClerkTotalSaleAmountPerMonth(month,clerkName)*bonusRate);
-        return  bonus+basicSalary;
+        float bonus = getClerkTotalSaleAmountPerMonth(month, clerkName) * bonusRate;
+        return bonus + basicSalary;
 
     }
-//计算所有员工各月工资
-    Object [][] salaryRowDataProduce(int month){
-        Object rowData[][]=new Object[Transition.clerkList.size()][2];
 
-        int i=0;
-        int j=0;
+    //计算所有员工各月工资
+    Object[][] salaryRowDataProduce(int month) {
+        Object rowData[][] = new Object[Transition.clerkList.size()][2];
 
-        Iterator clerkIterator=Transition.clerkList.iterator();
-        while(clerkIterator.hasNext()){
+        int i = 0;
+        int j = 0;
 
-            Clerk clerk=(Clerk)clerkIterator.next();
+        Iterator clerkIterator = Transition.clerkList.iterator();
+        while (clerkIterator.hasNext()) {
+            Clerk clerk = (Clerk) clerkIterator.next();
+            rowData[i][j++] = clerk.getName();
 
+            rowData[i][j] = clerk.getSalary();
 
-            rowData[i][j++]=clerk.getName();
+            //rowData[i][j] = salaryGenerate(month, clerk.getName());
+            //float tempsalary = salaryGenerate(month, clerk.getName());
+            //clerk.setSalary(Math.round(tempsalary));
 
-            rowData[i][j]=salaryGenerate(month,clerk.getName());
-
-            j=0;
+            j = 0;
             i++;
 
         }
+        //SaleSystem.saveData();
         return rowData;
     }
 }

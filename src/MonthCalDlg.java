@@ -55,9 +55,9 @@ public class MonthCalDlg extends JDialog {
     private void onOK() {
 
         int month = (int) spinner1.getValue();
-        int total=saleSystem.monthSaleCalculator.getClerkTotalSaleAmountPerMonth(month, saleSystem.account.getUserName());
+        float total=saleSystem.monthSaleCalculator.getClerkTotalSaleAmountPerMonth(month, saleSystem.account.getUserName());
 
-        resultArea.setText("month sale amount: "+Integer.toString(total)+"$");
+        resultArea.setText("month sale amount: "+Float.toString(total)+"$");
     }
 
 

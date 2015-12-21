@@ -1,5 +1,3 @@
-
-
 import java.util.Iterator;
 
 /**
@@ -152,8 +150,8 @@ public class Transition {
     }
 
     //每月销售所有货品金额总数
-    public static int getClerkTotalSaleAmountPerMonth(int month, String clerkName) {
-        int saleAmount = 0;
+    public static float getClerkTotalSaleAmountPerMonth(int month, String clerkName) {
+        float saleAmount = 0;
 
         ReceiptCatalog monthRecord = getClerkMonthRecord(month, clerkName);
         Iterator iterator = productList.iterator();
@@ -193,6 +191,18 @@ public class Transition {
         return name;
     }
 
+    public static Clerk getClerkByName(String name) {
+        Clerk c = null;
+        for (Clerk clerk : clerkList) {
+            if (name.equalsIgnoreCase(clerk.getName())) {
+                c = clerk;
+                break;
+            }
+
+        }
+        return c;
+    }
+
     public static int getProductIdByName(String name) {
         int id = -1;
         for (Product p : productList) {
@@ -200,22 +210,24 @@ public class Transition {
                 id = p.getId();
                 break;
             }
+
         }
         return id;
     }
 
-    public static int  getNextProductId(){
+    public static int getNextProductId() {
         return productList.size() + 1;
     }
 
     public static void calculateStoreAmount(int proId, int sellAmount) throws Exception {
+        Boolean isEnough = false;
         for (Product p : productList) {
             if (p.getId() == proId && p.storeAmount >= sellAmount) {
                 p.storeAmount -= sellAmount;
-            } else {
-                throw new Exception("product is not Enough! ");
+                isEnough = true;
             }
-
         }
+        if (!isEnough)
+            throw new Exception("product is not Enough! ");
     }
 }
