@@ -20,6 +20,7 @@ public class SalaryCheckDlg extends JDialog {
 
         this.saleSystem = saleSystem;
 
+
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
