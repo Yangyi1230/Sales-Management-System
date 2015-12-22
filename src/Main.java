@@ -5,7 +5,7 @@
 public class Main {
     public static void main(String[] args) {
        //更新obj文件时使用
-      /* DataTransition d = new DataTransition();
+     /*  DataTransition d = new DataTransition();
        // ProductInfoList pro = d.generateProListFromFile();
         ProductList pl = d.generateProductList();
         try{
@@ -13,9 +13,6 @@ public class Main {
             d.SerialToFile(pl);
         }catch(Exception e){
         }*/
-
-
-
 
         AccountList accountList =null;
 

@@ -10,7 +10,7 @@ public class SaleSystem {
     public ReportProducer reportProducer;
     public PercentageCounter percentageCounter;
     public TotalSaleCalculator totalSaleCalculator;
-    public AddNewProduct addNewProduct;
+    public OpeOnProduct opeOnProduct;
     public Account account;
     public SalaryCheck salaryCheck;
     public SaleSystem(Account account) {
@@ -32,7 +32,7 @@ public class SaleSystem {
         percentageCounter=new PercentageCounter();
         totalSaleCalculator=new TotalSaleCalculator();
         salaryCheck=new SalaryCheck();
-        addNewProduct = new AddNewProduct();
+        opeOnProduct = new OpeOnProduct();
 
         this.account=account;
         //account=new Account(userName);

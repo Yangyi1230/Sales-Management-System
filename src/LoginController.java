@@ -29,19 +29,11 @@ public class LoginController {
                     dialog.pack();
                     dialog.setVisible(true);
                 });
-
-
                 return;
-
             }
-
         }
-
         JOptionPane.showMessageDialog(null, "用户名或密码错误", "", JOptionPane.ERROR_MESSAGE);
-
     }
-
-
 }
 
 

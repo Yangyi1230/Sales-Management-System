@@ -1,21 +1,19 @@
+import sun.reflect.annotation.EnumConstantNotPresentExceptionProxy;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class AddDLg extends JDialog {
+public class DeleteDlg extends JDialog {
     SaleSystem saleSystem;
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
     private JTextField productName;
-    private JTextField amount;
-    private JTextField price;
 
-    public AddDLg(SaleSystem saleSystem) {
-        this.saleSystem = saleSystem;
+    public DeleteDlg(SaleSystem saleSystem) {
         productName.setText("");
-        price.setText("");
-        amount.setText("");
+        this.saleSystem = saleSystem;
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
@@ -49,38 +47,32 @@ public class AddDLg extends JDialog {
 
         Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
         int swingx = 500;
-        int swingy = 300;
-        this.setBounds(screensize.width / 2- swingx / 2, screensize.height / 2 - swingy /2, swingx,swingy);
+        int swingy = 400;
+        this.setBounds(screensize.width / 2 - swingx / 2, screensize.height / 2 - swingy / 2 , swingx, swingy);
     }
 
     private void onOK() {
 // add your code here
-        if(productName.getText().equals("")||amount.getText().equals("")||price.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "必须将表单填满以完成输入", "",JOptionPane.ERROR_MESSAGE);
-        }else if(saleSystem.opeOnProduct.productIsExist(productName.getText())){
-            JOptionPane.showMessageDialog(null, "该商品信息已存在", "", JOptionPane.ERROR_MESSAGE);
-        } else{
-            int productID = Transition.getNextProductId();
-            try {
-                saleSystem.opeOnProduct.addProduct(productID, productName.getText(), Integer.parseInt(price.getText() ), Integer.parseInt(amount.getText()));
-                saleSystem.saveData();
-                JOptionPane.showMessageDialog(null, "录入成功", "", JOptionPane.PLAIN_MESSAGE);
-            }catch(Exception e){
+       if(productName.getText().equals("")){
+           JOptionPane.showMessageDialog(null, "请输入产品名称","",JOptionPane.ERROR_MESSAGE);
+       }else{
+           try{
+               if(saleSystem.opeOnProduct.delete(productName.getText())){
+                   saleSystem.saveData();
+                   JOptionPane.showMessageDialog(null, "该商品信息删除成功", "",JOptionPane.INFORMATION_MESSAGE);
+               }else{
+                   JOptionPane.showMessageDialog(null,"该商品不存在", "", JOptionPane.INFORMATION_MESSAGE);
+               }
+           }catch(Exception e){
 
-            }finally {
-                productName.setText("");
-                price.setText("");
-                amount.setText("");
-            }
-        }
+           }finally {
+               productName.setText("");
+           }
+       }
     }
 
     private void onCancel() {
 // add your code here if necessary
         dispose();
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
     }
 }

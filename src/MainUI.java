@@ -12,6 +12,7 @@ public class MainUI extends JDialog {
     private JButton royaltyGeneratorButton;
     private JButton reportProducerButton;
     private JButton addButton;
+    private JButton deleteButton;
     private JButton buttonOK;
     private JButton buttonCancel;
     public static SaleSystem saleSystem;
@@ -56,6 +57,7 @@ public class MainUI extends JDialog {
         reportProducerButton.addActionListener((event)->onReportProducer());
 
         addButton.addActionListener((event)->onAdd());
+        deleteButton.addActionListener((event)->onDelete());
 
         Dimension screensize=Toolkit.getDefaultToolkit().getScreenSize();
         int Swing1x=500;
@@ -99,6 +101,12 @@ public class MainUI extends JDialog {
         AddDLg dialog = new AddDLg(saleSystem);
         dialog.pack();
         dialog.setVisible(true);
+    }
+
+    public void onDelete(){
+        DeleteDlg dlg = new DeleteDlg(saleSystem);
+        dlg.pack();;
+        dlg.setVisible(true);
     }
 
 

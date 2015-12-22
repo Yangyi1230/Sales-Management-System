@@ -11,5 +11,13 @@ public class ProductList extends ArrayList <Product> {
         }
         return false;
     }
-
+    public boolean delete(String name){
+        for(int i = 0;i < size(); i++){
+            if(get(i).getProName().equals(name)){
+                remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
 }
